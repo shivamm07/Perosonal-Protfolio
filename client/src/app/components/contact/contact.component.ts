@@ -8,16 +8,23 @@ import { PortfolioApiService } from '../../core/services/portfolio-api.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
-    <section>
-      <h2>Contact</h2>
-      <form [formGroup]="form" (ngSubmit)="submit()" style="display:flex; flex-direction:column; gap:0.75rem; max-width:400px;">
-        <input formControlName="name" placeholder="Name" />
-        <input formControlName="email" placeholder="Email" />
-        <textarea formControlName="message" placeholder="Message" rows="4"></textarea>
-        <button type="submit" [disabled]="form.invalid || submitting">
+    <section class="section">
+      <span class="section-tag">// contact</span>
+      <h2 class="section-title">Contact</h2>
+
+      <form
+        [formGroup]="form"
+        (ngSubmit)="submit()"
+        class="card"
+        style="display:flex; flex-direction:column; gap:1rem; max-width:460px;"
+      >
+        <input class="form-input" formControlName="name" placeholder="Name" />
+        <input class="form-input" formControlName="email" placeholder="Email" />
+        <textarea class="form-input" formControlName="message" placeholder="Message" rows="4"></textarea>
+        <button class="btn-primary" type="submit" [disabled]="form.invalid || submitting">
           {{ submitting ? 'Sending...' : 'Send' }}
         </button>
-        <p *ngIf="successMessage">{{ successMessage }}</p>
+        <p class="status-msg" *ngIf="successMessage">{{ successMessage }}</p>
       </form>
     </section>
   `

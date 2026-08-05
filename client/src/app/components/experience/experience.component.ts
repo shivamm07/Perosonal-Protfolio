@@ -8,14 +8,17 @@ import { Experience } from '../../core/models/portfolio.models';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section>
-      <h2>Experience</h2>
-      <div *ngFor="let exp of experience" style="margin-bottom:1.5rem;">
-        <h3>{{ exp.role }} · {{ exp.company }}</h3>
-        <p style="color:#9aa4b2; font-size:0.9rem;">
-          {{ exp.startDate }} – {{ exp.endDate || 'Present' }}
-        </p>
-        <p>{{ exp.description }}</p>
+    <section class="section">
+      <span class="section-tag">// experience</span>
+      <h2 class="section-title">Experience</h2>
+
+      <div class="timeline">
+        <div class="timeline-item" *ngFor="let exp of experience">
+          <span class="timeline-dot"></span>
+          <div class="timeline-role">{{ exp.role }} · {{ exp.company }}</div>
+          <div class="timeline-date">{{ exp.startDate }} – {{ exp.endDate || 'Present' }}</div>
+          <p style="margin:0; line-height:1.7; color:var(--text);">{{ exp.description }}</p>
+        </div>
       </div>
     </section>
   `

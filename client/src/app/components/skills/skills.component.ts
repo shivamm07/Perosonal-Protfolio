@@ -8,11 +8,17 @@ import { Skill } from '../../core/models/portfolio.models';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section>
-      <h2>Skills</h2>
-      <div *ngFor="let group of groupedSkills | keyvalue">
-        <h3>{{ group.key }}</h3>
-        <p>{{ getNames(group.value) }}</p>
+    <section class="section">
+      <span class="section-tag">// skills</span>
+      <h2 class="section-title">Skills</h2>
+
+      <div class="card" *ngFor="let group of groupedSkills | keyvalue">
+        <h3 style="font-size:1rem; color:var(--muted); font-family:'JetBrains Mono', monospace; margin-bottom:0.25rem;">
+          {{ group.key }}
+        </h3>
+        <div class="pill-row">
+          <span class="pill" *ngFor="let skill of group.value">{{ skill.name }}</span>
+        </div>
       </div>
     </section>
   `
@@ -29,9 +35,5 @@ export class SkillsComponent implements OnInit {
         return acc;
       }, {} as Record<string, Skill[]>);
     });
-  }
-
-  getNames(skills: Skill[]): string {
-    return skills.map(s => s.name).join(', ');
   }
 }
