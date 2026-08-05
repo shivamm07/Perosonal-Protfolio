@@ -5,17 +5,241 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `
     <section class="section">
-      <span class="section-tag">// about</span>
-      <h2 class="section-title">About Me</h2>
-      <div class="card">
-        <p style="margin:0; line-height:1.8; color:var(--text); font-size:1rem;">
-          TODO: Replace with your real story — e.g. "I'm a software developer with
-          3 years of experience building enterprise web applications using .NET Core,
-          Angular, and SQL Server. I enjoy designing clean APIs and solving data-heavy
-          backend problems..."
-        </p>
+
+      <h2 class="section-title">
+        Passionate Software Engineer
+      </h2>
+
+      <p class="intro">
+        I'm <strong>Shivam Prasad</strong>, a Full Stack .NET Developer with
+        nearly <strong>3 years of experience</strong> developing enterprise
+        applications using <strong>.NET, ASP.NET Core, Angular, SQL Server,
+        REST APIs</strong> and modern development practices.
+      </p>
+
+      <p class="intro">
+        Currently working at
+        <strong>Acty System India Pvt. Ltd.</strong>, I contribute to
+        enterprise solutions for
+        <strong>Konica Minolta's FleetRMM platform</strong>,
+        developing scalable backend APIs, Windows applications,
+        authentication modules and device management features.
+      </p>
+
+      <div class="highlights">
+
+        <div class="card card-hover">
+          <div class="icon">💻</div>
+
+          <h3>Backend Development</h3>
+
+          <p>
+            Building scalable REST APIs using
+            ASP.NET Core, C#, Entity Framework,
+            SQL Server and Clean Architecture.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="icon">⚡</div>
+
+          <h3>Frontend Development</h3>
+
+          <p>
+            Creating responsive Angular applications
+            with reusable components and modern UI.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="icon">🗄️</div>
+
+          <h3>Database</h3>
+
+          <p>
+            Designing optimized SQL Server databases,
+            stored procedures and performance tuning.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="icon">🚀</div>
+
+          <h3>Problem Solving</h3>
+
+          <p>
+            Passionate about writing clean,
+            maintainable and production-ready code
+            following best development practices.
+          </p>
+        </div>
+
       </div>
+
+      <div class="achievement">
+
+        <div class="item">
+          <h3>3+</h3>
+          <span>Years Experience</span>
+        </div>
+
+        <div class="item">
+          <h3>10+</h3>
+          <span>Enterprise Features</span>
+        </div>
+
+        <div class="item">
+          <h3>20+</h3>
+          <span>REST APIs</span>
+        </div>
+
+        <div class="item">
+          <h3>100%</h3>
+          <span>Project Commitment</span>
+        </div>
+
+      </div>
+
     </section>
-  `
+  `,
+  styles: [`
+
+.intro{
+
+color:var(--text-muted);
+
+font-size:17px;
+
+line-height:1.9;
+
+margin-bottom:24px;
+
+max-width:900px;
+
+}
+
+.highlights{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:24px;
+
+margin-top:50px;
+
+}
+
+.card{
+
+padding:28px;
+
+}
+
+.icon{
+
+font-size:42px;
+
+margin-bottom:18px;
+
+}
+
+.card h3{
+
+margin:0 0 12px;
+
+color:var(--text);
+
+font-size:22px;
+
+}
+
+.card p{
+
+margin:0;
+
+line-height:1.8;
+
+color:var(--text-muted);
+
+}
+
+.achievement{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:24px;
+
+margin-top:60px;
+
+}
+
+.item{
+
+text-align:center;
+
+padding:25px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid var(--border);
+
+border-radius:20px;
+
+transition:.3s;
+
+}
+
+.item:hover{
+
+transform:translateY(-6px);
+
+border-color:var(--primary);
+
+}
+
+.item h3{
+
+margin:0;
+
+font-size:42px;
+
+color:var(--primary);
+
+}
+
+.item span{
+
+display:block;
+
+margin-top:10px;
+
+color:var(--text-muted);
+
+}
+
+@media(max-width:900px){
+
+.achievement{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.achievement{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+`]
 })
 export class AboutComponent {}
