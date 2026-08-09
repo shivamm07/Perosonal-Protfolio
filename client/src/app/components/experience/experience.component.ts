@@ -151,57 +151,59 @@ font-size:17px;
 position:relative;
 margin-left:25px;
 padding-left:40px;
-border-left:3px solid rgba(124,92,255,.25);
+border-left:2px solid var(--border);
 }
 
 .timeline-item{
 position:relative;
-margin-bottom:50px;
+margin-bottom:44px;
 }
 
 .timeline-dot{
 position:absolute;
 left:-53px;
 top:30px;
-width:18px;
-height:18px;
+width:16px;
+height:16px;
 border-radius:50%;
 background:var(--primary);
-border:4px solid #09090b;
-box-shadow:0 0 20px rgba(124,92,255,.5);
+border:4px solid var(--bg);
+box-shadow:0 0 18px var(--primary-dim);
 }
 
 .timeline-card{
-padding:30px;
+padding:28px;
 }
 
 .header{
 display:flex;
 justify-content:space-between;
 align-items:flex-start;
-margin-bottom:20px;
+margin-bottom:18px;
 gap:20px;
 }
 
 .header h3{
 margin:0;
-font-size:26px;
+font-size:23px;
+font-family:var(--font-display);
 color:var(--text);
 }
 
 .header h4{
-margin:8px 0 0;
-font-size:17px;
+margin:6px 0 0;
+font-size:15.5px;
 color:var(--text-muted);
 font-weight:500;
 }
 
 .duration{
-padding:8px 18px;
-border-radius:999px;
-background:rgba(124,92,255,.12);
-color:#c4b5fd;
-font-size:13px;
+padding:7px 16px;
+border-radius:8px;
+background:var(--primary-dim);
+color:var(--primary);
+font-family:var(--font-mono);
+font-size:12px;
 font-weight:600;
 white-space:nowrap;
 }
@@ -209,23 +211,25 @@ white-space:nowrap;
 .timeline-card p{
 line-height:1.8;
 color:var(--text-muted);
-margin-bottom:25px;
+margin-bottom:22px;
+font-size:15.5px;
 }
 
 .tech{
 display:flex;
 flex-wrap:wrap;
-gap:10px;
-margin-bottom:25px;
+gap:9px;
+margin-bottom:22px;
 }
 
 .tech span{
-padding:8px 16px;
-border-radius:999px;
-background:rgba(124,92,255,.12);
-border:1px solid rgba(124,92,255,.25);
-color:#c4b5fd;
-font-size:13px;
+padding:7px 15px;
+border-radius:8px;
+background:var(--surface-light);
+border:1px solid var(--border);
+color:var(--text-muted);
+font-family:var(--font-mono);
+font-size:12px;
 }
 
 ul{
@@ -234,9 +238,10 @@ margin:0;
 }
 
 li{
-margin-bottom:12px;
+margin-bottom:11px;
 line-height:1.8;
 color:var(--text);
+font-size:15px;
 }
 
 @media(max-width:768px){

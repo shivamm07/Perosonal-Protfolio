@@ -33,6 +33,25 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
         </div>
 
+        <div class="stat-row">
+
+            <div class="stat">
+                <span class="value">3+</span>
+                <span class="label">yrs</span>
+            </div>
+
+            <div class="stat">
+                <span class="value">20+</span>
+                <span class="label">APIs</span>
+            </div>
+
+            <div class="stat">
+                <span class="value">99.9%</span>
+                <span class="label">uptime*</span>
+            </div>
+
+        </div>
+
     </div>
 
     <!-- Navigation -->
@@ -47,37 +66,43 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
         <a routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">
 
-            🏠 <span>Home</span>
+            <span class="nav-label">🏠 Home</span>
+            <span class="endpoint">/</span>
 
         </a>
 
         <a routerLink="/about" routerLinkActive="active">
 
-            👤 <span>About</span>
+            <span class="nav-label">👤 About</span>
+            <span class="endpoint">/about</span>
 
         </a>
 
         <a routerLink="/skills" routerLinkActive="active">
 
-            ⚡ <span>Skills</span>
+            <span class="nav-label">⚡ Skills</span>
+            <span class="endpoint">/skills</span>
 
         </a>
 
         <a routerLink="/projects" routerLinkActive="active">
 
-            💼 <span>Projects</span>
+            <span class="nav-label">💼 Projects</span>
+            <span class="endpoint">/projects</span>
 
         </a>
 
         <a routerLink="/experience" routerLinkActive="active">
 
-            🏢 <span>Experience</span>
+            <span class="nav-label">🏢 Experience</span>
+            <span class="endpoint">/experience</span>
 
         </a>
 
         <a routerLink="/contact" routerLinkActive="active">
 
-            ✉ <span>Contact</span>
+            <span class="nav-label">✉ Contact</span>
+            <span class="endpoint">/contact</span>
 
         </a>
 
@@ -151,15 +176,15 @@ display:flex;
 
 flex-direction:column;
 
-padding:28px;
+padding:26px;
 
-background:rgba(18,18,26,.65);
+background:var(--surface);
 
 backdrop-filter:blur(20px);
 
-border:1px solid rgba(255,255,255,.08);
+border:1px solid var(--border);
 
-border-radius:24px;
+border-radius:20px;
 
 overflow-y:auto;
 
@@ -171,27 +196,27 @@ overflow-y:auto;
 
 text-align:center;
 
-padding-bottom:30px;
+padding-bottom:24px;
 
-border-bottom:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid var(--border);
 
 }
 
 .avatar{
 
-width:120px;
+width:104px;
 
-height:120px;
+height:104px;
 
 margin:auto;
 
-padding:4px;
+padding:3px;
 
 border-radius:50%;
 
-background:linear-gradient(135deg,#7C5CFF,#38BDF8);
+background:linear-gradient(135deg,var(--primary),#38BDF8);
 
-box-shadow:0 0 35px rgba(124,92,255,.35);
+box-shadow:0 0 30px var(--primary-dim);
 
 }
 
@@ -209,19 +234,25 @@ border-radius:50%;
 
 .profile h2{
 
-margin:18px 0 6px;
+margin:16px 0 4px;
 
-font-size:24px;
+font-size:21px;
 
 font-weight:700;
+
+font-family:var(--font-display);
+
+color:var(--text);
 
 }
 
 .profile p{
 
-color:#94A3B8;
+color:var(--text-muted);
 
-margin-bottom:18px;
+margin-bottom:16px;
+
+font-size:14px;
 
 }
 
@@ -233,15 +264,17 @@ align-items:center;
 
 gap:8px;
 
-padding:10px 18px;
+padding:8px 16px;
 
-border-radius:999px;
+border-radius:8px;
 
-background:#153826;
+background:var(--primary-dim);
 
-color:#4ADE80;
+color:var(--primary);
 
-font-size:13px;
+font-family:var(--font-mono);
+
+font-size:12px;
 
 font-weight:600;
 
@@ -249,13 +282,63 @@ font-weight:600;
 
 .dot{
 
-width:8px;
+width:7px;
 
-height:8px;
+height:7px;
 
-background:#4ADE80;
+background:var(--success);
 
 border-radius:50%;
+
+box-shadow:0 0 0 3px var(--primary-dim);
+
+}
+
+.stat-row{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-top:20px;
+
+padding-top:18px;
+
+border-top:1px solid var(--border);
+
+}
+
+.stat{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:2px;
+
+}
+
+.stat .value{
+
+font-family:var(--font-mono);
+
+font-weight:600;
+
+font-size:15px;
+
+color:var(--text);
+
+}
+
+.stat .label{
+
+font-family:var(--font-mono);
+
+font-size:10.5px;
+
+color:var(--text-muted);
 
 }
 
@@ -263,17 +346,19 @@ border-radius:50%;
 
 .menu-title{
 
-margin:28px 0 16px;
+margin:24px 0 14px;
 
-font-size:12px;
+font-size:11px;
 
 font-weight:700;
 
-letter-spacing:2px;
+letter-spacing:1.5px;
 
 text-transform:uppercase;
 
-color:#7C869C;
+color:var(--text-muted);
+
+font-family:var(--font-mono);
 
 }
 
@@ -285,7 +370,7 @@ display:flex;
 
 flex-direction:column;
 
-gap:10px;
+gap:4px;
 
 }
 
@@ -295,37 +380,57 @@ display:flex;
 
 align-items:center;
 
+justify-content:space-between;
+
 gap:12px;
 
-padding:14px 18px;
+padding:12px 14px;
 
-border-radius:14px;
+border-radius:10px;
 
 text-decoration:none;
 
 font-weight:600;
 
-color:#CBD5E1;
+font-size:14.5px;
 
-transition:.3s;
+color:var(--text-muted);
+
+transition:.25s ease;
+
+}
+
+nav a .endpoint{
+
+font-size:10.5px;
+
+opacity:.7;
 
 }
 
 nav a:hover{
 
-background:rgba(124,92,255,.12);
+background:var(--surface-light);
 
-transform:translateX(6px);
+color:var(--text);
+
+transform:translateX(4px);
 
 }
 
 nav a.active{
 
-background:linear-gradient(135deg,#7C5CFF,#5B21B6);
+background:var(--primary-dim);
 
-color:white;
+color:var(--primary);
 
-box-shadow:0 12px 28px rgba(124,92,255,.35);
+}
+
+nav a.active .endpoint{
+
+color:var(--primary);
+
+opacity:1;
 
 }
 
@@ -337,33 +442,35 @@ display:flex;
 
 flex-wrap:wrap;
 
-gap:10px;
+gap:8px;
 
 }
 
 .chips span{
 
-padding:8px 14px;
+padding:7px 13px;
 
-border-radius:999px;
+border-radius:7px;
 
-background:rgba(124,92,255,.12);
+background:var(--primary-dim);
 
-border:1px solid rgba(124,92,255,.22);
+border:1px solid rgba(0,229,160,.2);
 
-color:#C4B5FD;
+color:var(--primary);
 
-font-size:12px;
+font-family:var(--font-mono);
 
-transition:.3s;
+font-size:11.5px;
+
+transition:.25s ease;
 
 }
 
 .chips span:hover{
 
-background:#7C5CFF;
+background:var(--primary);
 
-color:white;
+color:#04120D;
 
 }
 
@@ -373,7 +480,7 @@ color:white;
 
 margin-top:auto;
 
-padding-top:30px;
+padding-top:26px;
 
 }
 
@@ -383,35 +490,37 @@ display:flex;
 
 flex-direction:column;
 
-gap:12px;
+gap:10px;
 
 }
 
 .social a{
 
-padding:12px 18px;
+padding:11px 16px;
 
-border-radius:12px;
+border-radius:10px;
 
-background:rgba(255,255,255,.04);
+background:var(--surface-light);
 
-border:1px solid rgba(255,255,255,.06);
+border:1px solid var(--border);
 
 text-decoration:none;
 
-color:#CBD5E1;
+color:var(--text-muted);
 
-transition:.3s;
+font-size:14px;
+
+transition:.25s ease;
 
 }
 
 .social a:hover{
 
-background:#7C5CFF;
+border-color:var(--primary);
 
-color:white;
+color:var(--primary);
 
-transform:translateX(6px);
+transform:translateX(4px);
 
 }
 

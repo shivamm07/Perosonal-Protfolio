@@ -5,6 +5,9 @@ import { Component } from '@angular/core';
   standalone: true,
   template: `
     <section class="section">
+
+      <span class="section-tag">// SKILLS</span>
+
       <h2 class="section-title">
         Technical Skills
       </h2>
@@ -146,23 +149,25 @@ color:var(--text-muted);
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-gap:30px;
+gap:24px;
 
 }
 
 .card{
 
-padding:30px;
+padding:28px;
 
 }
 
 .card h3{
 
-margin-bottom:30px;
+margin-bottom:26px;
 
-font-size:24px;
+font-size:20px;
+
+font-family:var(--font-display);
 
 color:var(--text);
 
@@ -176,21 +181,33 @@ justify-content:space-between;
 
 margin-bottom:8px;
 
-font-size:15px;
+font-size:14px;
 
 font-weight:600;
+
+color:var(--text);
+
+}
+
+.skill span:last-child{
+
+font-family:var(--font-mono);
+
+color:var(--text-muted);
+
+font-weight:500;
 
 }
 
 .progress{
 
-height:8px;
+height:6px;
 
-background:rgba(255,255,255,.08);
+background:var(--surface-light);
 
 border-radius:20px;
 
-margin-bottom:22px;
+margin-bottom:20px;
 
 overflow:hidden;
 
@@ -200,7 +217,7 @@ overflow:hidden;
 
 height:100%;
 
-background:linear-gradient(90deg,#7c5cff,#38bdf8);
+background:var(--primary);
 
 border-radius:20px;
 
@@ -212,33 +229,37 @@ display:flex;
 
 flex-wrap:wrap;
 
-gap:14px;
+gap:10px;
 
 }
 
 .tools span{
 
-padding:10px 18px;
+padding:9px 16px;
 
-background:rgba(124,92,255,.12);
+background:var(--primary-dim);
 
-border:1px solid rgba(124,92,255,.25);
+border:1px solid rgba(0,229,160,.22);
 
-border-radius:999px;
+border-radius:8px;
 
-color:#c4b5fd;
+color:var(--primary);
 
-font-size:14px;
+font-family:var(--font-mono);
 
-transition:.3s;
+font-size:12.5px;
+
+transition:.25s ease;
 
 }
 
 .tools span:hover{
 
-transform:translateY(-4px);
+transform:translateY(-3px);
 
-background:rgba(124,92,255,.2);
+background:var(--primary);
+
+color:#04120D;
 
 }
 

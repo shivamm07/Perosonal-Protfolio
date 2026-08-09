@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   template: `
     <section class="section">
 
+      <span class="section-tag">// ABOUT</span>
+
       <h2 class="section-title">
         Passionate Software Engineer
       </h2>
@@ -118,15 +120,21 @@ max-width:900px;
 
 }
 
+.intro strong{
+
+color:var(--text);
+
+}
+
 .highlights{
 
 display:grid;
 
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 
-gap:24px;
+gap:22px;
 
-margin-top:50px;
+margin-top:46px;
 
 }
 
@@ -138,9 +146,9 @@ padding:28px;
 
 .icon{
 
-font-size:42px;
+font-size:38px;
 
-margin-bottom:18px;
+margin-bottom:16px;
 
 }
 
@@ -150,7 +158,7 @@ margin:0 0 12px;
 
 color:var(--text);
 
-font-size:22px;
+font-size:20px;
 
 }
 
@@ -162,6 +170,8 @@ line-height:1.8;
 
 color:var(--text-muted);
 
+font-size:15px;
+
 }
 
 .achievement{
@@ -170,9 +180,9 @@ display:grid;
 
 grid-template-columns:repeat(4,1fr);
 
-gap:24px;
+gap:20px;
 
-margin-top:60px;
+margin-top:56px;
 
 }
 
@@ -180,21 +190,21 @@ margin-top:60px;
 
 text-align:center;
 
-padding:25px;
+padding:24px;
 
-background:rgba(255,255,255,.04);
+background:var(--surface);
 
 border:1px solid var(--border);
 
-border-radius:20px;
+border-radius:16px;
 
-transition:.3s;
+transition:.25s ease;
 
 }
 
 .item:hover{
 
-transform:translateY(-6px);
+transform:translateY(-5px);
 
 border-color:var(--primary);
 
@@ -204,7 +214,9 @@ border-color:var(--primary);
 
 margin:0;
 
-font-size:42px;
+font-size:36px;
+
+font-family:var(--font-display);
 
 color:var(--primary);
 
@@ -214,9 +226,13 @@ color:var(--primary);
 
 display:block;
 
-margin-top:10px;
+margin-top:8px;
 
 color:var(--text-muted);
+
+font-size:13.5px;
+
+font-family:var(--font-mono);
 
 }
 

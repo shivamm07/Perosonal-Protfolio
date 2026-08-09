@@ -116,7 +116,7 @@ import { Component } from '@angular/core';
               <div>✔ Responsive Design</div>
               <div>✔ Standalone Components</div>
               <div>✔ Modern UI</div>
-              <div>✔ Dark Theme</div>
+              <div>✔ Dark & Light Theme</div>
 
             </div>
 
@@ -171,7 +171,7 @@ display:flex;
 
 flex-direction:column;
 
-gap:35px;
+gap:30px;
 
 }
 
@@ -197,11 +197,13 @@ align-items:center;
 
 justify-content:center;
 
-font-size:90px;
+font-size:80px;
 
-border-radius:20px;
+border-radius:16px;
 
-background:linear-gradient(135deg,#7c5cff,#38bdf8);
+background:var(--surface-light);
+
+border:1px solid var(--border);
 
 }
 
@@ -213,7 +215,7 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:18px;
+margin-bottom:16px;
 
 }
 
@@ -221,21 +223,27 @@ margin-bottom:18px;
 
 margin:0;
 
-font-size:28px;
+font-size:24px;
+
+font-family:var(--font-display);
+
+color:var(--text);
 
 }
 
 .badge{
 
-padding:8px 16px;
+padding:7px 15px;
 
-border-radius:999px;
+border-radius:8px;
 
-background:#14532d;
+background:var(--primary-dim);
 
-color:#4ade80;
+color:var(--primary);
 
-font-size:13px;
+font-family:var(--font-mono);
+
+font-size:12px;
 
 font-weight:600;
 
@@ -243,9 +251,9 @@ font-weight:600;
 
 .personal{
 
-background:#312e81;
+background:var(--amber-dim);
 
-color:#c4b5fd;
+color:var(--amber);
 
 }
 
@@ -255,6 +263,8 @@ line-height:1.8;
 
 color:var(--text-muted);
 
+font-size:15.5px;
+
 }
 
 .tech{
@@ -263,25 +273,27 @@ display:flex;
 
 flex-wrap:wrap;
 
-gap:10px;
+gap:9px;
 
-margin:25px 0;
+margin:22px 0;
 
 }
 
 .tech span{
 
-padding:8px 16px;
+padding:7px 15px;
 
-border-radius:999px;
+border-radius:8px;
 
-background:rgba(124,92,255,.12);
+background:var(--surface-light);
 
-border:1px solid rgba(124,92,255,.2);
+border:1px solid var(--border);
 
-color:#c4b5fd;
+color:var(--text-muted);
 
-font-size:13px;
+font-family:var(--font-mono);
+
+font-size:12px;
 
 }
 
@@ -291,11 +303,13 @@ display:grid;
 
 grid-template-columns:repeat(2,1fr);
 
-gap:12px;
+gap:10px;
 
-margin-bottom:25px;
+margin-bottom:24px;
 
 color:var(--text);
+
+font-size:14.5px;
 
 }
 
@@ -303,43 +317,47 @@ color:var(--text);
 
 display:flex;
 
-gap:15px;
+gap:14px;
 
 }
 
 .buttons a{
 
-padding:12px 22px;
+padding:11px 20px;
 
-border-radius:10px;
+border-radius:9px;
 
 text-decoration:none;
 
 font-weight:600;
 
-transition:.3s;
+font-size:14px;
+
+transition:.25s ease;
 
 }
 
 .github{
 
-background:#24292e;
+background:var(--surface-light);
 
-color:white;
+border:1px solid var(--border-strong);
+
+color:var(--text);
 
 }
 
 .demo{
 
-background:linear-gradient(135deg,#7c5cff,#5b21b6);
+background:var(--primary);
 
-color:white;
+color:#04120D;
 
 }
 
 .buttons a:hover{
 
-transform:translateY(-4px);
+transform:translateY(-3px);
 
 }
 
@@ -353,7 +371,7 @@ grid-template-columns:1fr;
 
 .project-image{
 
-height:180px;
+height:160px;
 
 }
 

@@ -1,11 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
+
+<div class="statusbar">
+  <span class="status-dot"></span>
+  <span>ALL SYSTEMS OPERATIONAL</span>
+  <span class="sep">·</span>
+  <span>UPTIME 3Y 2MO</span>
+  <span class="sep">·</span>
+  <span>{{ buildTag }}</span>
+</div>
 
 <header class="navbar">
 
@@ -91,9 +102,14 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
         </a>
 
-        <button class="theme">
+        <button
+            class="theme"
+            type="button"
+            (click)="theme.toggle()"
+            [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
 
-            🌙
+            <span *ngIf="theme.theme() === 'dark'">☀</span>
+            <span *ngIf="theme.theme() === 'light'">☾</span>
 
         </button>
 
@@ -116,6 +132,44 @@ z-index:1000;
 
 }
 
+.statusbar{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+padding:7px 20px;
+
+font-family:var(--font-mono);
+
+font-size:11.5px;
+
+letter-spacing:.4px;
+
+color:var(--text-muted);
+
+background:var(--bg-elevated);
+
+border-bottom:1px solid var(--border);
+
+}
+
+.statusbar .status-dot{
+
+box-shadow:0 0 0 3px var(--primary-dim);
+
+}
+
+.statusbar .sep{
+
+color:var(--border-strong);
+
+}
+
 .navbar{
 
 height:82px;
@@ -128,11 +182,17 @@ align-items:center;
 
 padding:0 40px;
 
-background:rgba(18,18,26,.75);
+background:rgba(18,23,31,.75);
 
 backdrop-filter:blur(20px);
 
-border-bottom:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid var(--border);
+
+}
+
+[data-theme="light"] .navbar{
+
+background:rgba(255,255,255,.75);
 
 }
 
@@ -148,9 +208,9 @@ gap:14px;
 
 .logo-box{
 
-width:52px;
+width:50px;
 
-height:52px;
+height:50px;
 
 display:flex;
 
@@ -158,17 +218,19 @@ justify-content:center;
 
 align-items:center;
 
-border-radius:16px;
+border-radius:12px;
 
-background:linear-gradient(135deg,#7C5CFF,#5B21B6);
+background:var(--primary);
 
-font-size:22px;
+font-size:20px;
 
 font-weight:700;
 
-color:white;
+color:#04120D;
 
-box-shadow:0 10px 30px rgba(124,92,255,.35);
+font-family:var(--font-mono);
+
+box-shadow:0 10px 26px rgba(0,229,160,.25);
 
 }
 
@@ -176,19 +238,23 @@ box-shadow:0 10px 30px rgba(124,92,255,.35);
 
 margin:0;
 
-font-size:22px;
+font-size:20px;
 
 font-weight:700;
 
-color:white;
+color:var(--text);
+
+font-family:var(--font-display);
 
 }
 
 .logo-text span{
 
-font-size:13px;
+font-size:12.5px;
 
-color:#94A3B8;
+font-family:var(--font-mono);
+
+color:var(--text-muted);
 
 }
 
@@ -196,41 +262,41 @@ nav{
 
 display:flex;
 
-gap:8px;
+gap:6px;
 
 }
 
 nav a{
 
-padding:12px 20px;
+padding:11px 18px;
 
-border-radius:12px;
+border-radius:9px;
 
 text-decoration:none;
 
 font-weight:600;
 
-color:#CBD5E1;
+font-size:14.5px;
 
-transition:.3s;
+color:var(--text-muted);
+
+transition:.25s ease;
 
 }
 
 nav a:hover{
 
-background:rgba(124,92,255,.12);
+background:var(--surface-light);
 
-color:white;
+color:var(--text);
 
 }
 
 nav a.active{
 
-background:linear-gradient(135deg,#7C5CFF,#5B21B6);
+background:var(--primary-dim);
 
-color:white;
-
-box-shadow:0 12px 28px rgba(124,92,255,.35);
+color:var(--primary);
 
 }
 
@@ -240,25 +306,25 @@ display:flex;
 
 align-items:center;
 
-gap:14px;
+gap:12px;
 
 }
 
 .resume{
 
-padding:12px 22px;
+padding:11px 22px;
 
-border-radius:12px;
+border-radius:9px;
 
-background:linear-gradient(135deg,#7C5CFF,#5B21B6);
+background:var(--primary);
 
-color:white;
+color:#04120D;
 
 text-decoration:none;
 
-font-weight:600;
+font-weight:700;
 
-transition:.3s;
+transition:.25s ease;
 
 }
 
@@ -266,35 +332,37 @@ transition:.3s;
 
 transform:translateY(-2px);
 
-box-shadow:0 15px 35px rgba(124,92,255,.35);
+box-shadow:0 15px 32px rgba(0,229,160,.3);
 
 }
 
 .theme{
 
-width:46px;
+width:44px;
 
-height:46px;
+height:44px;
 
-border:none;
+border:1px solid var(--border-strong);
 
 border-radius:50%;
 
 cursor:pointer;
 
-background:rgba(255,255,255,.05);
+background:var(--surface);
 
-color:white;
+color:var(--text);
 
-font-size:18px;
+font-size:17px;
 
-transition:.3s;
+transition:.25s ease;
 
 }
 
 .theme:hover{
 
-background:#7C5CFF;
+border-color:var(--primary);
+
+color:var(--primary);
 
 transform:rotate(15deg);
 
@@ -316,6 +384,31 @@ padding:0 20px;
 
 }
 
+@media(max-width:600px){
+
+.statusbar{
+
+font-size:10px;
+
+gap:6px;
+
+}
+
+.statusbar .sep:nth-of-type(2),
+.statusbar span:nth-last-child(1){
+
+display:none;
+
+}
+
+}
+
 `]
 })
-export class TopbarComponent {}
+export class TopbarComponent {
+
+  theme = inject(ThemeService);
+
+  buildTag = `BUILD ${new Date().getFullYear()}.${String(new Date().getMonth() + 1).padStart(2, '0')}`;
+
+}

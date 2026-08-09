@@ -49,7 +49,7 @@ display:block;
 
 min-height:100vh;
 
-background:#09090B;
+background:var(--bg);
 
 }
 
@@ -65,7 +65,7 @@ max-width:1900px;
 
 margin:auto;
 
-min-height:calc(100vh - 82px);
+min-height:calc(100vh - 82px - 33px);
 
 }
 
@@ -75,9 +75,9 @@ min-height:calc(100vh - 82px);
 
 position:sticky;
 
-top:82px;
+top:115px;
 
-height:calc(100vh - 82px);
+height:calc(100vh - 115px);
 
 padding:22px;
 
@@ -93,7 +93,7 @@ display:flex;
 
 flex-direction:column;
 
-min-height:calc(100vh - 82px);
+min-height:calc(100vh - 82px - 33px);
 
 }
 

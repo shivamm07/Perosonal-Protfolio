@@ -150,79 +150,111 @@ font-size:17px;
 
 .contact-grid{
 display:grid;
-grid-template-columns:350px 1fr;
-gap:40px;
+grid-template-columns:340px 1fr;
+gap:36px;
 align-items:start;
 }
 
 .info{
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:18px;
 }
 
 .info-card{
 display:flex;
 align-items:center;
 gap:20px;
-padding:25px;
+padding:22px;
 }
 
 .icon{
-width:60px;
-height:60px;
+width:52px;
+height:52px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:28px;
-border-radius:50%;
-background:rgba(124,92,255,.15);
+font-size:24px;
+border-radius:12px;
+background:var(--primary-dim);
+flex-shrink:0;
 }
 
 .info-card h3{
-margin:0 0 6px;
-font-size:18px;
+margin:0 0 4px;
+font-size:16px;
+color:var(--text);
 }
 
 .info-card p{
 margin:0;
 color:var(--text-muted);
+font-size:14.5px;
 }
 
 .social-links{
 display:flex;
-gap:15px;
-margin-top:10px;
+gap:12px;
+margin-top:6px;
 }
 
 .social-links a{
-padding:12px 22px;
-border-radius:10px;
-background:rgba(124,92,255,.12);
+padding:11px 20px;
+border-radius:9px;
+background:var(--surface-light);
+border:1px solid var(--border);
 text-decoration:none;
-color:white;
-transition:.3s;
+color:var(--text);
+font-size:14px;
+font-weight:600;
+transition:.25s ease;
 }
 
 .social-links a:hover{
-background:var(--primary);
+border-color:var(--primary);
+color:var(--primary);
 }
 
 .form{
 display:flex;
 flex-direction:column;
-gap:18px;
-padding:35px;
+gap:16px;
+padding:32px;
 }
 
 .form-input{
 width:100%;
+padding:14px 16px;
+border-radius:10px;
+background:var(--surface-light);
+border:1px solid var(--border);
+color:var(--text);
+font-family:var(--font-body);
+font-size:14.5px;
+outline:none;
+transition:.25s ease;
+resize:vertical;
+}
+
+.form-input::placeholder{
+color:var(--text-muted);
+}
+
+.form-input:focus{
+border-color:var(--primary);
+box-shadow:0 0 0 3px var(--primary-dim);
+}
+
+.form button[disabled]{
+opacity:.5;
+cursor:not-allowed;
 }
 
 .status{
-margin-top:10px;
-color:#4ade80;
+margin-top:4px;
+color:var(--success);
 font-weight:600;
+font-size:14.5px;
 }
 
 @media(max-width:900px){
