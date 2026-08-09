@@ -1,146 +1,414 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [RouterLink],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
-    <header class="topbar">
-      <div class="topbar-left">
-        <img class="avatar" src="assets/images/profile.jpg" alt="Shivamkumar Prasad" />
-        <span class="brand">Shivamkumar Prasad</span>
-        <a routerLink="/" class="nav-link">Home</a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" class="nav-link">LinkedIn ↗</a>
-        <a href="/assets/resume.pdf" target="_blank" class="nav-link">Resume ↗</a>
-      </div>
 
-      <div class="topbar-right">
-        <input class="search" type="text" placeholder="Search sections..." />
-        <span class="clock">
-          <span class="dot"></span>
-          {{ time }}
-        </span>
-        <a href="https://github.com/your-username" target="_blank" class="icon-link" aria-label="GitHub" title="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.1 3.29 9.42 7.86 10.96.57.1.78-.25.78-.55v-1.94c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.07.78 2.16v3.2c0 .3.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/>
-          </svg>
+<div class="statusbar">
+  <span class="status-dot"></span>
+  <span>ALL SYSTEMS OPERATIONAL</span>
+  <span class="sep">·</span>
+  <span>UPTIME 3Y 2MO</span>
+  <span class="sep">·</span>
+  <span>{{ buildTag }}</span>
+</div>
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-box">
+
+            &lt;/&gt;
+
+        </div>
+
+        <div class="logo-text">
+
+            <h2>Shivam</h2>
+
+            <span>.NET Developer</span>
+
+        </div>
+
+    </div>
+
+    <nav>
+
+        <a
+            routerLink="/"
+            [routerLinkActiveOptions]="{exact:true}"
+            routerLinkActive="active">
+
+            Home
+
         </a>
-      </div>
-    </header>
-  `,
-  styles: [`
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      padding: 0 1.5rem;
-      background: rgba(11, 15, 46, 0.7);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
 
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
+        <a
+            routerLink="/about"
+            routerLinkActive="active">
 
-    .avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--border);
-    }
+            About
 
-    .brand {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--text);
-      margin-right: 0.5rem;
-    }
+        </a>
 
-    .nav-link {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: color 0.15s ease;
-    }
+        <a
+            routerLink="/skills"
+            routerLinkActive="active">
 
-    .nav-link:hover {
-      color: var(--text);
-    }
+            Skills
 
-    .topbar-right {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+        </a>
 
-    .search {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.4rem 0.75rem;
-      color: var(--text);
-      font-size: 0.85rem;
-      width: 200px;
-      outline: none;
-    }
+        <a
+            routerLink="/projects"
+            routerLinkActive="active">
 
-    .search::placeholder {
-      color: var(--muted);
-    }
+            Projects
 
-    .search:focus {
-      border-color: var(--accent);
-    }
+        </a>
 
-    .clock {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
+        <a
+            routerLink="/experience"
+            routerLinkActive="active">
 
-    .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #4ade80;
-    }
+            Experience
 
-    .icon-link {
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      transition: color 0.15s ease;
-    }
+        </a>
 
-    .icon-link:hover {
-      color: var(--text);
-    }
-  `]
+        <a
+            routerLink="/contact"
+            routerLinkActive="active">
+
+            Contact
+
+        </a>
+
+    </nav>
+
+    <div class="actions">
+
+        <a
+            href="assets/resume.pdf"
+            target="_blank"
+            class="resume">
+
+            Resume
+
+        </a>
+
+        <button
+            class="theme"
+            type="button"
+            (click)="theme.toggle()"
+            [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
+
+            <span *ngIf="theme.theme() === 'dark'">☀</span>
+            <span *ngIf="theme.theme() === 'light'">☾</span>
+
+        </button>
+
+    </div>
+
+</header>
+
+`,
+styles:[`
+
+:host{
+
+display:block;
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+}
+
+.statusbar{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+padding:7px 20px;
+
+font-family:var(--font-mono);
+
+font-size:11.5px;
+
+letter-spacing:.4px;
+
+color:var(--text-muted);
+
+background:var(--bg-elevated);
+
+border-bottom:1px solid var(--border);
+
+}
+
+.statusbar .status-dot{
+
+box-shadow:0 0 0 3px var(--primary-dim);
+
+}
+
+.statusbar .sep{
+
+color:var(--border-strong);
+
+}
+
+.navbar{
+
+height:82px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 40px;
+
+background:rgba(18,23,31,.75);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid var(--border);
+
+}
+
+[data-theme="light"] .navbar{
+
+background:rgba(255,255,255,.75);
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+}
+
+.logo-box{
+
+width:50px;
+
+height:50px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:12px;
+
+background:var(--primary);
+
+font-size:20px;
+
+font-weight:700;
+
+color:#04120D;
+
+font-family:var(--font-mono);
+
+box-shadow:0 10px 26px rgba(0,229,160,.25);
+
+}
+
+.logo-text h2{
+
+margin:0;
+
+font-size:20px;
+
+font-weight:700;
+
+color:var(--text);
+
+font-family:var(--font-display);
+
+}
+
+.logo-text span{
+
+font-size:12.5px;
+
+font-family:var(--font-mono);
+
+color:var(--text-muted);
+
+}
+
+nav{
+
+display:flex;
+
+gap:6px;
+
+}
+
+nav a{
+
+padding:11px 18px;
+
+border-radius:9px;
+
+text-decoration:none;
+
+font-weight:600;
+
+font-size:14.5px;
+
+color:var(--text-muted);
+
+transition:.25s ease;
+
+}
+
+nav a:hover{
+
+background:var(--surface-light);
+
+color:var(--text);
+
+}
+
+nav a.active{
+
+background:var(--primary-dim);
+
+color:var(--primary);
+
+}
+
+.actions{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.resume{
+
+padding:11px 22px;
+
+border-radius:9px;
+
+background:var(--primary);
+
+color:#04120D;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:.25s ease;
+
+}
+
+.resume:hover{
+
+transform:translateY(-2px);
+
+box-shadow:0 15px 32px rgba(0,229,160,.3);
+
+}
+
+.theme{
+
+width:44px;
+
+height:44px;
+
+border:1px solid var(--border-strong);
+
+border-radius:50%;
+
+cursor:pointer;
+
+background:var(--surface);
+
+color:var(--text);
+
+font-size:17px;
+
+transition:.25s ease;
+
+}
+
+.theme:hover{
+
+border-color:var(--primary);
+
+color:var(--primary);
+
+transform:rotate(15deg);
+
+}
+
+@media(max-width:1100px){
+
+nav{
+
+display:none;
+
+}
+
+.navbar{
+
+padding:0 20px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.statusbar{
+
+font-size:10px;
+
+gap:6px;
+
+}
+
+.statusbar .sep:nth-of-type(2),
+.statusbar span:nth-last-child(1){
+
+display:none;
+
+}
+
+}
+
+`]
 })
-export class TopbarComponent implements OnInit, OnDestroy {
-  time = '';
-  private intervalId?: ReturnType<typeof setInterval>;
+export class TopbarComponent {
 
-  ngOnInit(): void {
-    this.updateTime();
-    this.intervalId = setInterval(() => this.updateTime(), 1000);
-  }
+  theme = inject(ThemeService);
 
-  ngOnDestroy(): void {
-    if (this.intervalId) clearInterval(this.intervalId);
-  }
+  buildTag = `BUILD ${new Date().getFullYear()}.${String(new Date().getMonth() + 1).padStart(2, '0')}`;
 
-  private updateTime(): void {
-    this.time = new Date().toLocaleTimeString('en-US', { hour12: false });
-  }
 }
