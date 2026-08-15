@@ -6,107 +6,165 @@ import { Component } from '@angular/core';
   template: `
     <section class="section">
 
-      <span class="section-tag">// SKILLS</span>
-
       <h2 class="section-title">
         Technical Skills
       </h2>
 
       <p class="description">
-        Over the past three years, I've worked with modern technologies to
-        build enterprise applications, scalable APIs and responsive web
-        interfaces.
+        A practical technology stack built through hands-on experience in
+        enterprise application development, backend engineering, APIs,
+        databases and modern web development.
       </p>
 
       <div class="skills-grid">
 
-        <div class="card card-hover">
+        <!-- Backend -->
 
-          <h3>💻 Backend</h3>
+        <div class="card card-hover skill-card">
 
-          <div class="skill">
-            <span>.NET 8 / .NET</span>
-            <span>95%</span>
+          <div class="skill-heading">
+            <div class="skill-icon">⌘</div>
+
+            <div>
+              <h3>Backend Development</h3>
+              <span>Core Expertise</span>
+            </div>
           </div>
-          <div class="progress"><div style="width:95%"></div></div>
 
-          <div class="skill">
-            <span>ASP.NET Core</span>
-            <span>95%</span>
-          </div>
-          <div class="progress"><div style="width:95%"></div></div>
+          <div class="skill-list">
 
-          <div class="skill">
-            <span>REST API</span>
-            <span>90%</span>
-          </div>
-          <div class="progress"><div style="width:90%"></div></div>
+            <div class="skill-item">
+              <span>C#</span>
+              <span class="level">Advanced</span>
+            </div>
 
-          <div class="skill">
-            <span>C#</span>
-            <span>95%</span>
+            <div class="skill-item">
+              <span>.NET / .NET Core</span>
+              <span class="level">Advanced</span>
+            </div>
+
+            <div class="skill-item">
+              <span>ASP.NET Core</span>
+              <span class="level">Advanced</span>
+            </div>
+
+            <div class="skill-item">
+              <span>RESTful Web APIs</span>
+              <span class="level">Advanced</span>
+            </div>
+
+            <div class="skill-item">
+              <span>Entity Framework Core</span>
+              <span class="level">Strong</span>
+            </div>
+
           </div>
-          <div class="progress"><div style="width:95%"></div></div>
 
         </div>
 
-        <div class="card card-hover">
 
-          <h3>🎨 Frontend</h3>
+        <!-- Frontend -->
 
-          <div class="skill">
-            <span>Angular</span>
-            <span>90%</span>
+        <div class="card card-hover skill-card">
+
+          <div class="skill-heading">
+            <div class="skill-icon">◇</div>
+
+            <div>
+              <h3>Frontend Development</h3>
+              <span>Web Applications</span>
+            </div>
           </div>
-          <div class="progress"><div style="width:90%"></div></div>
 
-          <div class="skill">
-            <span>TypeScript</span>
-            <span>88%</span>
-          </div>
-          <div class="progress"><div style="width:88%"></div></div>
+          <div class="skill-list">
 
-          <div class="skill">
-            <span>HTML5</span>
-            <span>95%</span>
-          </div>
-          <div class="progress"><div style="width:95%"></div></div>
+            <div class="skill-item">
+              <span>Angular</span>
+              <span class="level">Strong</span>
+            </div>
 
-          <div class="skill">
-            <span>CSS3</span>
-            <span>90%</span>
+            <div class="skill-item">
+              <span>TypeScript</span>
+              <span class="level">Strong</span>
+            </div>
+
+            <div class="skill-item">
+              <span>JavaScript</span>
+              <span class="level">Strong</span>
+            </div>
+
+            <div class="skill-item">
+              <span>HTML5</span>
+              <span class="level">Strong</span>
+            </div>
+
+            <div class="skill-item">
+              <span>CSS3</span>
+              <span class="level">Strong</span>
+            </div>
+
           </div>
-          <div class="progress"><div style="width:90%"></div></div>
 
         </div>
 
-        <div class="card card-hover">
 
-          <h3>🗄 Database</h3>
+        <!-- Database -->
 
-          <div class="skill">
-            <span>SQL Server</span>
-            <span>92%</span>
+        <div class="card card-hover skill-card">
+
+          <div class="skill-heading">
+            <div class="skill-icon">▣</div>
+
+            <div>
+              <h3>Database</h3>
+              <span>Data & Performance</span>
+            </div>
           </div>
-          <div class="progress"><div style="width:92%"></div></div>
 
-          <div class="skill">
-            <span>Entity Framework</span>
-            <span>90%</span>
-          </div>
-          <div class="progress"><div style="width:90%"></div></div>
+          <div class="skill-list">
 
-          <div class="skill">
-            <span>LINQ</span>
-            <span>90%</span>
+            <div class="skill-item">
+              <span>SQL Server</span>
+              <span class="level">Advanced</span>
+            </div>
+
+            <div class="skill-item">
+              <span>SQL Queries</span>
+              <span class="level">Advanced</span>
+            </div>
+
+            <div class="skill-item">
+              <span>Stored Procedures</span>
+              <span class="level">Strong</span>
+            </div>
+
+            <div class="skill-item">
+              <span>LINQ</span>
+              <span class="level">Strong</span>
+            </div>
+
+            <div class="skill-item">
+              <span>Database Optimization</span>
+              <span class="level">Strong</span>
+            </div>
+
           </div>
-          <div class="progress"><div style="width:90%"></div></div>
 
         </div>
 
-        <div class="card card-hover">
 
-          <h3>🛠 Tools</h3>
+        <!-- Development Tools -->
+
+        <div class="card card-hover skill-card">
+
+          <div class="skill-heading">
+            <div class="skill-icon">⚙</div>
+
+            <div>
+              <h3>Tools & Practices</h3>
+              <span>Development Workflow</span>
+            </div>
+          </div>
 
           <div class="tools">
 
@@ -115,11 +173,73 @@ import { Component } from '@angular/core';
             <span>Git</span>
             <span>GitHub</span>
             <span>Postman</span>
-            <span>Azure DevOps</span>
             <span>Swagger</span>
             <span>NUnit</span>
-            <span>Windows</span>
-            <span>Docker</span>
+            <span>Azure DevOps</span>
+            <span>Entity Framework</span>
+
+          </div>
+
+        </div>
+
+
+        <!-- Architecture -->
+
+        <div class="card card-hover skill-card architecture-card">
+
+          <div class="skill-heading">
+            <div class="skill-icon">◈</div>
+
+            <div>
+              <h3>Architecture & Practices</h3>
+              <span>Engineering Practices</span>
+            </div>
+          </div>
+
+          <div class="tools">
+
+            <span>Clean Architecture</span>
+            <span>REST API Design</span>
+            <span>Authentication</span>
+            <span>Authorization</span>
+            <span>API Optimization</span>
+            <span>Debugging</span>
+            <span>Unit Testing</span>
+            <span>Code Review</span>
+
+          </div>
+
+        </div>
+
+
+        <!-- Core Focus -->
+
+        <div class="card card-hover focus-card">
+
+          <div class="focus-content">
+
+            <span class="focus-label">
+              CURRENT FOCUS
+            </span>
+
+            <h3>
+              .NET Backend Development
+            </h3>
+
+            <p>
+              Building reliable APIs, optimizing backend performance,
+              working with SQL Server and developing maintainable
+              enterprise applications.
+            </p>
+
+          </div>
+
+          <div class="focus-stack">
+
+            <span>C#</span>
+            <span>.NET</span>
+            <span>ASP.NET Core</span>
+            <span>SQL Server</span>
 
           </div>
 
@@ -129,140 +249,267 @@ import { Component } from '@angular/core';
 
     </section>
   `,
+
   styles: [`
 
-.description{
+    .description {
+      max-width: 850px;
+      margin-bottom: 50px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
 
-max-width:850px;
 
-margin-bottom:50px;
+    /* Grid */
 
-font-size:17px;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
 
-line-height:1.8;
 
-color:var(--text-muted);
+    /* Cards */
 
-}
+    .card {
+      padding: 28px;
+    }
 
-.skills-grid{
 
-display:grid;
+    /* Skill Heading */
 
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    .skill-heading {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 26px;
+    }
 
-gap:24px;
+    .skill-icon {
+      width: 44px;
+      height: 44px;
 
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-.card{
+      border-radius: 11px;
 
-padding:28px;
+      background: var(--primary-dim);
+      border: 1px solid rgba(0,229,160,.22);
 
-}
+      color: var(--primary);
 
-.card h3{
+      font-size: 20px;
+      font-family: var(--font-mono);
+    }
 
-margin-bottom:26px;
+    .skill-heading h3 {
+      margin: 0 0 4px;
 
-font-size:20px;
+      font-size: 19px;
+      font-family: var(--font-display);
 
-font-family:var(--font-display);
+      color: var(--text);
+    }
 
-color:var(--text);
+    .skill-heading span {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: .6px;
+      text-transform: uppercase;
 
-}
+      color: var(--text-muted);
+    }
 
-.skill{
 
-display:flex;
+    /* Skill List */
 
-justify-content:space-between;
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
-margin-bottom:8px;
+    .skill-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-font-size:14px;
+      padding: 12px 14px;
 
-font-weight:600;
+      border-radius: 9px;
 
-color:var(--text);
+      background: var(--surface-light);
+      border: 1px solid var(--border);
 
-}
+      color: var(--text);
 
-.skill span:last-child{
+      font-size: 13.5px;
 
-font-family:var(--font-mono);
+      transition: .25s ease;
+    }
 
-color:var(--text-muted);
+    .skill-item:hover {
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
 
-font-weight:500;
+    .level {
+      color: var(--primary);
 
-}
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
 
-.progress{
+      text-transform: uppercase;
+    }
 
-height:6px;
 
-background:var(--surface-light);
+    /* Tools */
 
-border-radius:20px;
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-margin-bottom:20px;
+    .tools span {
+      padding: 9px 14px;
 
-overflow:hidden;
+      border-radius: 8px;
 
-}
+      background: var(--primary-dim);
+      border: 1px solid rgba(0,229,160,.22);
 
-.progress div{
+      color: var(--primary);
 
-height:100%;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
 
-background:var(--primary);
+      transition: .25s ease;
+    }
 
-border-radius:20px;
+    .tools span:hover {
+      background: var(--primary);
+      color: #04120D;
+      transform: translateY(-2px);
+    }
 
-}
 
-.tools{
+    /* Architecture */
 
-display:flex;
+    .architecture-card {
+      min-height: 250px;
+    }
 
-flex-wrap:wrap;
 
-gap:10px;
+    /* Focus Card */
 
-}
+    .focus-card {
+      position: relative;
+      overflow: hidden;
 
-.tools span{
+      background:
+        linear-gradient(
+          135deg,
+          var(--surface),
+          var(--surface-light)
+        );
+    }
 
-padding:9px 16px;
+    .focus-content {
+      position: relative;
+      z-index: 1;
+    }
 
-background:var(--primary-dim);
+    .focus-label {
+      display: inline-block;
 
-border:1px solid rgba(0,229,160,.22);
+      margin-bottom: 12px;
 
-border-radius:8px;
+      color: var(--primary);
 
-color:var(--primary);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+    }
 
-font-family:var(--font-mono);
+    .focus-card h3 {
+      margin: 0 0 12px;
 
-font-size:12.5px;
+      font-size: 25px;
+      font-family: var(--font-display);
 
-transition:.25s ease;
+      color: var(--text);
+    }
 
-}
+    .focus-card p {
+      max-width: 520px;
 
-.tools span:hover{
+      margin: 0;
 
-transform:translateY(-3px);
+      color: var(--text-muted);
 
-background:var(--primary);
+      font-size: 14px;
+      line-height: 1.8;
+    }
 
-color:#04120D;
+    .focus-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
 
-}
+      margin-top: 24px;
+    }
 
-`]
+    .focus-stack span {
+      padding: 7px 12px;
+
+      border-radius: 7px;
+
+      background: var(--primary-dim);
+
+      color: var(--primary);
+
+      font-family: var(--font-mono);
+      font-size: 11px;
+    }
+
+
+    /* Responsive */
+
+    @media(max-width:900px) {
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media(max-width:600px) {
+
+      .description {
+        font-size: 15.5px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .skill-heading h3 {
+        font-size: 18px;
+      }
+
+      .focus-card h3 {
+        font-size: 22px;
+      }
+
+    }
+
+  `]
 })
 export class SkillsComponent {}

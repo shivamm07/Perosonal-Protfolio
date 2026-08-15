@@ -6,20 +6,19 @@ import { Component } from '@angular/core';
   template: `
     <section class="section">
 
-      <span class="section-tag">// EXPERIENCE</span>
-
       <h2 class="section-title">
         Professional Experience
       </h2>
 
       <p class="description">
-        My professional journey building enterprise software solutions,
-        scalable backend systems and modern web applications.
+        Over 3 years of experience developing enterprise software,
+        building scalable backend services, REST APIs and
+        data-driven applications using the .NET technology stack.
       </p>
 
       <div class="timeline">
 
-        <!-- Current Company -->
+        <!-- Senior Programmer -->
 
         <div class="timeline-item">
 
@@ -44,32 +43,50 @@ import { Component } from '@angular/core';
             </div>
 
             <p>
-              Working on the FleetRMM enterprise platform for Konica Minolta,
-              developing scalable backend APIs, authentication modules,
-              notification services, Windows applications and Angular UI
-              components.
+              Working on an enterprise software platform, developing
+              scalable backend services, REST APIs, authentication
+              modules, notification services and application features.
+              Focused primarily on .NET backend development and
+              enterprise application performance.
             </p>
 
             <div class="tech">
 
+              <span>C#</span>
               <span>.NET</span>
               <span>ASP.NET Core</span>
-              <span>Angular</span>
+              <span>Web API</span>
               <span>SQL Server</span>
-              <span>REST API</span>
+              <span>Angular</span>
               <span>Git</span>
 
             </div>
 
             <ul>
 
-              <li>Developed enterprise backend services.</li>
+              <li>
+                Developed and optimized REST APIs using ASP.NET Core and C#.
+              </li>
 
-              <li>Implemented REST APIs and authentication modules.</li>
+              <li>
+                Implemented authentication and authorization modules
+                for enterprise applications.
+              </li>
 
-              <li>Built Windows desktop features and notification services.</li>
+              <li>
+                Worked with SQL Server, database queries and
+                backend data processing.
+              </li>
 
-              <li>Collaborated with Japanese clients and offshore teams.</li>
+              <li>
+                Improved application performance, reliability and
+                maintainability through code optimization.
+              </li>
+
+              <li>
+                Collaborated with cross-functional teams on
+                enterprise feature development and troubleshooting.
+              </li>
 
             </ul>
 
@@ -77,7 +94,8 @@ import { Component } from '@angular/core';
 
         </div>
 
-        <!-- Previous Role -->
+
+        <!-- Programmer -->
 
         <div class="timeline-item">
 
@@ -102,14 +120,16 @@ import { Component } from '@angular/core';
             </div>
 
             <p>
-              Started my professional career building business applications,
-              learning enterprise software development, SQL Server,
-              ASP.NET and Angular.
+              Started my professional career developing business
+              application features and gaining hands-on experience
+              with .NET, ASP.NET, SQL Server and modern web
+              development practices.
             </p>
 
             <div class="tech">
 
               <span>C#</span>
+              <span>.NET</span>
               <span>ASP.NET</span>
               <span>SQL Server</span>
               <span>JavaScript</span>
@@ -119,13 +139,23 @@ import { Component } from '@angular/core';
 
             <ul>
 
-              <li>Developed business application modules.</li>
+              <li>
+                Developed and maintained application modules using C# and .NET.
+              </li>
 
-              <li>Worked with SQL queries and stored procedures.</li>
+              <li>
+                Created and optimized SQL queries and stored procedures.
+              </li>
 
-              <li>Fixed production bugs and improved application stability.</li>
+              <li>
+                Fixed application defects and improved overall
+                application stability.
+              </li>
 
-              <li>Participated in code reviews and feature development.</li>
+              <li>
+                Participated in feature development, debugging
+                and code reviews.
+              </li>
 
             </ul>
 
@@ -137,134 +167,185 @@ import { Component } from '@angular/core';
 
     </section>
   `,
+
   styles: [`
 
-.description{
-max-width:850px;
-color:var(--text-muted);
-line-height:1.8;
-margin-bottom:50px;
-font-size:17px;
-}
+    .description {
+      max-width: 850px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 50px;
+      font-size: 17px;
+    }
 
-.timeline{
-position:relative;
-margin-left:25px;
-padding-left:40px;
-border-left:2px solid var(--border);
-}
+    /* Timeline */
 
-.timeline-item{
-position:relative;
-margin-bottom:44px;
-}
+    .timeline {
+      position: relative;
+      margin-left: 25px;
+      padding-left: 40px;
+      border-left: 2px solid var(--border);
+    }
 
-.timeline-dot{
-position:absolute;
-left:-53px;
-top:30px;
-width:16px;
-height:16px;
-border-radius:50%;
-background:var(--primary);
-border:4px solid var(--bg);
-box-shadow:0 0 18px var(--primary-dim);
-}
+    .timeline-item {
+      position: relative;
+      margin-bottom: 44px;
+    }
 
-.timeline-card{
-padding:28px;
-}
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-margin-bottom:18px;
-gap:20px;
-}
+    .timeline-dot {
+      position: absolute;
+      left: -53px;
+      top: 30px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid var(--bg);
+      box-shadow: 0 0 18px var(--primary-dim);
+    }
 
-.header h3{
-margin:0;
-font-size:23px;
-font-family:var(--font-display);
-color:var(--text);
-}
+    /* Experience Card */
 
-.header h4{
-margin:6px 0 0;
-font-size:15.5px;
-color:var(--text-muted);
-font-weight:500;
-}
+    .timeline-card {
+      padding: 30px;
+    }
 
-.duration{
-padding:7px 16px;
-border-radius:8px;
-background:var(--primary-dim);
-color:var(--primary);
-font-family:var(--font-mono);
-font-size:12px;
-font-weight:600;
-white-space:nowrap;
-}
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+      gap: 20px;
+    }
 
-.timeline-card p{
-line-height:1.8;
-color:var(--text-muted);
-margin-bottom:22px;
-font-size:15.5px;
-}
+    .header h3 {
+      margin: 0;
+      font-size: 23px;
+      font-family: var(--font-display);
+      color: var(--text);
+    }
 
-.tech{
-display:flex;
-flex-wrap:wrap;
-gap:9px;
-margin-bottom:22px;
-}
+    .header h4 {
+      margin: 6px 0 0;
+      font-size: 15.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
 
-.tech span{
-padding:7px 15px;
-border-radius:8px;
-background:var(--surface-light);
-border:1px solid var(--border);
-color:var(--text-muted);
-font-family:var(--font-mono);
-font-size:12px;
-}
+    .duration {
+      padding: 7px 16px;
+      border-radius: 8px;
+      background: var(--primary-dim);
+      color: var(--primary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
 
-ul{
-padding-left:20px;
-margin:0;
-}
+    .timeline-card p {
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+      font-size: 15.5px;
+    }
 
-li{
-margin-bottom:11px;
-line-height:1.8;
-color:var(--text);
-font-size:15px;
-}
+    /* Technologies */
 
-@media(max-width:768px){
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 22px;
+    }
 
-.timeline{
-margin-left:10px;
-padding-left:25px;
-}
+    .tech span {
+      padding: 7px 15px;
+      border-radius: 8px;
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      transition: .25s ease;
+    }
 
-.timeline-dot{
-left:-38px;
-}
+    .tech span:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
 
-.header{
-flex-direction:column;
-}
+    /* Responsibilities */
 
-.duration{
-align-self:flex-start;
-}
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
 
-}
+    li {
+      margin-bottom: 11px;
+      line-height: 1.8;
+      color: var(--text);
+      font-size: 15px;
+    }
 
-`]
+    li::marker {
+      color: var(--primary);
+    }
+
+    /* Responsive */
+
+    @media(max-width: 768px) {
+
+      .timeline {
+        margin-left: 10px;
+        padding-left: 25px;
+      }
+
+      .timeline-dot {
+        left: -38px;
+      }
+
+      .header {
+        flex-direction: column;
+      }
+
+      .duration {
+        align-self: flex-start;
+      }
+
+      .timeline-card {
+        padding: 22px;
+      }
+
+    }
+
+    @media(max-width: 480px) {
+
+      .timeline {
+        margin-left: 5px;
+        padding-left: 20px;
+      }
+
+      .timeline-dot {
+        left: -33px;
+      }
+
+      .header h3 {
+        font-size: 20px;
+      }
+
+      .timeline-card p,
+      li {
+        font-size: 14px;
+      }
+
+    }
+
+  `]
 })
 export class ExperienceComponent {}
