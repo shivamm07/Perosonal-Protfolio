@@ -11,261 +11,692 @@ import {
   selector: 'app-contact',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+
   template: `
-<section class="section">
+    <section class="section">
 
-    <span class="section-tag">// CONTACT</span>
+      <h2 class="section-title">
+        Let's Connect
+      </h2>
 
-    <h2 class="section-title">
-        Let's Work Together
-    </h2>
+      <p class="description">
+        Interested in working together, discussing a .NET opportunity,
+        or simply want to connect? Feel free to send me a message.
+      </p>
 
-    <p class="description">
-        Have a project, job opportunity or simply want to connect?
-        Feel free to reach out. I'll respond as soon as possible.
-    </p>
 
-    <div class="contact-grid">
+      <div class="contact-grid">
+
+
+        <!-- Contact Information -->
 
         <div class="info">
 
-            <div class="info-card card">
+          <div class="info-header">
 
-                <div class="icon">📧</div>
+            <span class="small-label">
+              GET IN TOUCH
+            </span>
 
-                <div>
+            <h3>
+              Let's start a conversation.
+            </h3>
 
-                    <h3>Email</h3>
+            <p>
+              I'm open to discussing software development opportunities,
+              interesting projects and professional collaborations.
+            </p>
 
-                    <p>shivam.gmail.com</p>
+          </div>
 
-                </div>
+
+          <!-- Email -->
+
+          <a
+            class="info-card card"
+            href="mailto:shivamk.prasad07@gmail.com">
+
+            <div class="icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+
+            <div>
+
+              <span class="label">
+                Email
+              </span>
+
+              <strong>
+                shivamk.prasad07&#64;gmail.com
+              </strong>
 
             </div>
 
-            <div class="info-card card">
+          </a>
 
-                <div class="icon">📱</div>
 
-                <div>
+          <!-- Location -->
 
-                    <h3>Phone</h3>
+          <div class="info-card card">
 
-                    <p>+91 XXXXX XXXXX</p>
+            <div class="icon">
+              <i class="fas fa-location-dot"></i>
+            </div>
 
-                </div>
+            <div>
+
+              <span class="label">
+                Location
+              </span>
+
+              <strong>
+                Mumbai, India
+              </strong>
 
             </div>
 
-            <div class="info-card card">
+          </div>
 
-                <div class="icon">📍</div>
 
-                <div>
+          <!-- Availability -->
 
-                    <h3>Location</h3>
+          <div class="availability">
 
-                    <p>Mumbai, India</p>
+            <span class="status-dot"></span>
 
-                </div>
+            <div>
 
-            </div>
+              <strong>
+                Available for opportunities
+              </strong>
 
-            <div class="social-links">
-
-                <a href="https://github.com/yourusername" target="_blank">
-                    GitHub
-                </a>
-
-                <a href="https://linkedin.com/in/yourprofile" target="_blank">
-                    LinkedIn
-                </a>
+              <span>
+                Open to .NET Developer roles
+              </span>
 
             </div>
+
+          </div>
+
+
+          <!-- Social -->
+
+          <div class="social-links">
+
+            <a
+              href="https://github.com/shivamm07"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub">
+
+              <i class="fab fa-github"></i>
+
+            </a>
+
+            <a
+              href="https://linkedin.com/in/shivamm07"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn">
+
+              <i class="fab fa-linkedin-in"></i>
+
+            </a>
+
+            <a
+              href="mailto:shivamk.prasad07@gmail.com"
+              aria-label="Email">
+
+              <i class="fas fa-envelope"></i>
+
+            </a>
+
+          </div>
 
         </div>
 
-        <form
-            class="card form"
-            [formGroup]="form"
-            (ngSubmit)="submit()">
 
-            <input
+        <!-- Contact Form -->
+
+        <form
+          class="card form"
+          [formGroup]="form"
+          (ngSubmit)="submit()">
+
+
+          <div class="form-header">
+
+            <span>
+              MESSAGE
+            </span>
+
+            <h3>
+              Send me a message
+            </h3>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="field">
+
+              <label>
+                Name
+              </label>
+
+              <input
                 type="text"
                 class="form-input"
-                placeholder="Full Name"
+                placeholder="Your name"
                 formControlName="name">
 
-            <input
+              <small
+                *ngIf="form.get('name')?.touched &&
+                       form.get('name')?.invalid">
+
+                Please enter your name.
+
+              </small>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+                Email
+              </label>
+
+              <input
                 type="email"
                 class="form-input"
-                placeholder="Email Address"
+                placeholder="you@example.com"
                 formControlName="email">
 
+              <small
+                *ngIf="form.get('email')?.touched &&
+                       form.get('email')?.invalid">
+
+                Please enter a valid email.
+
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Subject
+            </label>
+
             <input
-                type="text"
-                class="form-input"
-                placeholder="Subject"
-                formControlName="subject">
+              type="text"
+              class="form-input"
+              placeholder="What would you like to discuss?"
+              formControlName="subject">
+
+          </div>
+
+
+          <div class="field">
+
+            <label>
+              Message
+            </label>
 
             <textarea
-                rows="6"
-                class="form-input"
-                placeholder="Write your message..."
-                formControlName="message">
+              rows="6"
+              class="form-input"
+              placeholder="Write your message..."
+              formControlName="message">
             </textarea>
 
-            <button
-                class="btn btn-primary"
-                type="submit"
-                [disabled]="form.invalid">
+            <small
+              *ngIf="form.get('message')?.touched &&
+                     form.get('message')?.invalid">
 
-                Send Message
+              Please enter a message.
 
-            </button>
+            </small>
 
-            <p
-                class="status"
-                *ngIf="submitted">
+          </div>
 
-                ✅ Thank you! Your message has been sent.
 
-            </p>
+          <button
+            class="btn btn-primary submit-btn"
+            type="submit"
+            [disabled]="form.invalid">
+
+            <span>
+              Send Message
+            </span>
+
+            <span class="arrow">
+              →
+            </span>
+
+          </button>
+
+
+          <p
+            class="status"
+            *ngIf="submitted">
+
+            <i class="fas fa-circle-check"></i>
+
+            Thanks! Your message has been submitted.
+
+          </p>
 
         </form>
 
-    </div>
+      </div>
 
-</section>
-`,
+    </section>
+  `,
+
   styles: [`
 
-.description{
-max-width:850px;
-margin-bottom:50px;
-line-height:1.8;
-color:var(--text-muted);
-font-size:17px;
-}
+    /* Description */
 
-.contact-grid{
-display:grid;
-grid-template-columns:340px 1fr;
-gap:36px;
-align-items:start;
-}
+    .description {
+      max-width: 820px;
+      margin-bottom: 50px;
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
 
-.info{
-display:flex;
-flex-direction:column;
-gap:18px;
-}
 
-.info-card{
-display:flex;
-align-items:center;
-gap:20px;
-padding:22px;
-}
+    /* Layout */
 
-.icon{
-width:52px;
-height:52px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:24px;
-border-radius:12px;
-background:var(--primary-dim);
-flex-shrink:0;
-}
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
 
-.info-card h3{
-margin:0 0 4px;
-font-size:16px;
-color:var(--text);
-}
 
-.info-card p{
-margin:0;
-color:var(--text-muted);
-font-size:14.5px;
-}
+    /* Information */
 
-.social-links{
-display:flex;
-gap:12px;
-margin-top:6px;
-}
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
-.social-links a{
-padding:11px 20px;
-border-radius:9px;
-background:var(--surface-light);
-border:1px solid var(--border);
-text-decoration:none;
-color:var(--text);
-font-size:14px;
-font-weight:600;
-transition:.25s ease;
-}
+    .info-header {
+      padding-bottom: 12px;
+    }
 
-.social-links a:hover{
-border-color:var(--primary);
-color:var(--primary);
-}
+    .small-label,
+    .form-header > span {
+      display: block;
 
-.form{
-display:flex;
-flex-direction:column;
-gap:16px;
-padding:32px;
-}
+      margin-bottom: 10px;
 
-.form-input{
-width:100%;
-padding:14px 16px;
-border-radius:10px;
-background:var(--surface-light);
-border:1px solid var(--border);
-color:var(--text);
-font-family:var(--font-body);
-font-size:14.5px;
-outline:none;
-transition:.25s ease;
-resize:vertical;
-}
+      color: var(--primary);
 
-.form-input::placeholder{
-color:var(--text-muted);
-}
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
 
-.form-input:focus{
-border-color:var(--primary);
-box-shadow:0 0 0 3px var(--primary-dim);
-}
+      letter-spacing: 1.2px;
+    }
 
-.form button[disabled]{
-opacity:.5;
-cursor:not-allowed;
-}
+    .info-header h3 {
+      margin: 0 0 10px;
 
-.status{
-margin-top:4px;
-color:var(--success);
-font-weight:600;
-font-size:14.5px;
-}
+      font-size: 23px;
+      font-family: var(--font-display);
 
-@media(max-width:900px){
+      color: var(--text);
+    }
 
-.contact-grid{
-grid-template-columns:1fr;
-}
+    .info-header p {
+      margin: 0;
 
-}
+      color: var(--text-muted);
 
-`]
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+
+    /* Contact Cards */
+
+    .info-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      padding: 18px;
+
+      text-decoration: none;
+
+      transition: .25s ease;
+    }
+
+    .info-card:hover {
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+
+      border-radius: 11px;
+
+      background: var(--primary-dim);
+
+      color: var(--primary);
+
+      font-size: 18px;
+    }
+
+    .info-card .label {
+      display: block;
+
+      margin-bottom: 4px;
+
+      color: var(--text-muted);
+
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .info-card strong {
+      display: block;
+
+      color: var(--text);
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+
+    /* Availability */
+
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 16px 18px;
+
+      border-radius: 12px;
+
+      background: var(--primary-dim);
+      border: 1px solid rgba(0,229,160,.18);
+    }
+
+    .availability .status-dot {
+      flex-shrink: 0;
+    }
+
+    .availability strong {
+      display: block;
+
+      color: var(--text);
+
+      font-size: 13px;
+    }
+
+    .availability span:not(.status-dot) {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--text-muted);
+
+      font-size: 11px;
+    }
+
+
+    /* Social */
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+
+      margin-top: 4px;
+    }
+
+    .social-links a {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+
+      color: var(--text-muted);
+
+      text-decoration: none;
+
+      font-size: 16px;
+
+      transition: .25s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+
+    /* Form */
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      padding: 30px;
+    }
+
+    .form-header {
+      margin-bottom: 4px;
+    }
+
+    .form-header h3 {
+      margin: 0;
+
+      color: var(--text);
+
+      font-size: 23px;
+      font-family: var(--font-display);
+    }
+
+
+    /* Form Row */
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field label {
+      color: var(--text);
+
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+
+    /* Inputs */
+
+    .form-input {
+      width: 100%;
+
+      padding: 13px 15px;
+
+      border-radius: 9px;
+
+      background: var(--surface-light);
+
+      border: 1px solid var(--border);
+
+      color: var(--text);
+
+      font-family: var(--font-body);
+      font-size: 14px;
+
+      outline: none;
+
+      transition: .25s ease;
+
+      resize: vertical;
+    }
+
+    .form-input::placeholder {
+      color: var(--text-muted);
+      opacity: .75;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 3px var(--primary-dim);
+    }
+
+
+    /* Validation */
+
+    .field small {
+      color: var(--danger);
+
+      font-size: 11px;
+    }
+
+
+    /* Submit */
+
+    .submit-btn {
+      width: fit-content;
+
+      min-width: 160px;
+
+      margin-top: 4px;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .arrow {
+      font-size: 18px;
+
+      transition: transform .25s ease;
+    }
+
+    .submit-btn:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    .form button[disabled] {
+      opacity: .45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+
+    /* Status */
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      margin: 0;
+
+      color: var(--success);
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+
+    /* Responsive */
+
+    @media(max-width: 1000px) {
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-header {
+        grid-column: 1 / -1;
+      }
+
+      .availability {
+        grid-column: 1 / -1;
+      }
+
+      .social-links {
+        grid-column: 1 / -1;
+      }
+
+    }
+
+
+    @media(max-width: 650px) {
+
+      .info {
+        display: flex;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form {
+        padding: 22px;
+      }
+
+      .submit-btn {
+        width: 100%;
+      }
+
+    }
+
+  `]
 })
 export class ContactComponent {
 
@@ -277,25 +708,44 @@ export class ContactComponent {
 
     this.form = this.fb.group({
 
-      name: ['', Validators.required],
+      name: [
+        '',
+        Validators.required
+      ],
 
-      email: ['', [Validators.required, Validators.email]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
 
-      subject: [''],
+      subject: [
+        ''
+      ],
 
-      message: ['', Validators.required]
+      message: [
+        '',
+        Validators.required
+      ]
 
     });
 
   }
 
+
   submit() {
 
     if (this.form.invalid) {
+
+      this.form.markAllAsTouched();
+
       return;
+
     }
 
-    console.log(this.form.value);
+    console.log('Contact Form:', this.form.value);
 
     this.submitted = true;
 

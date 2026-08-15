@@ -2,27 +2,44 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  imports: [RouterLink],
-  template: `
+    selector: 'app-footer',
+    standalone: true,
+    imports: [RouterLink],
+    template: `
+
 <footer class="footer">
 
     <div class="footer-container">
 
-        <div class="footer-left">
+        <!-- About -->
 
-            <h2>Shivam Prasad</h2>
+        <div class="footer-about">
+
+            <div class="footer-brand">
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+
+                <div>
+                    <h2>Shivamkumar Prasad</h2>
+                    <span>.NET Developer</span>
+                </div>
+
+            </div>
 
             <p>
-                Full Stack .NET Developer passionate about building
-                enterprise applications using ASP.NET Core,
+                Full Stack .NET Developer focused on building
+                scalable enterprise applications with ASP.NET Core,
                 Angular and SQL Server.
             </p>
 
         </div>
 
-        <div class="footer-middle">
+
+        <!-- Quick Links -->
+
+        <div class="footer-links">
 
             <h3>Quick Links</h3>
 
@@ -35,187 +52,392 @@ import { RouterLink } from '@angular/router';
 
         </div>
 
-        <div class="footer-right">
+
+        <!-- Connect -->
+
+        <div class="footer-connect">
 
             <h3>Connect</h3>
 
-            <a href="mailto:yourmail@gmail.com">
-                📧 Email
+            <a href="mailto:shivamk.prasad07@gmail.com">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <span>Email</span>
+
             </a>
 
-            <a href="https://linkedin.com/in/yourprofile" target="_blank">
-                💼 LinkedIn
+            <a
+                href="https://linkedin.com/in/shivamm07"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <i class="fa-brands fa-linkedin"></i>
+
+                <span>LinkedIn</span>
+
             </a>
 
-            <a href="https://github.com/yourusername" target="_blank">
-                💻 GitHub
+            <a
+                href="https://github.com/shivamm07"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <i class="fa-brands fa-github"></i>
+
+                <span>GitHub</span>
+
             </a>
 
         </div>
 
     </div>
 
+
+    <!-- Copyright -->
+
     <div class="copyright">
 
-        © {{year}} Shivam Prasad
+        <span>
+            © {{ year }} Shivamkumar Prasad
+        </span>
 
-        <span>|</span>
+        <span class="separator">•</span>
 
-        Built with ❤️ using Angular & ASP.NET Core
+        <span>
+            Designed & Built with Angular + ASP.NET Core
+        </span>
 
     </div>
 
 </footer>
+
 `,
-styles:[`
 
-.footer{
+    styles: [`
 
-width:100%;
+/* ============================================================
+   FOOTER
+============================================================ */
 
-background:var(--bg-elevated);
+.footer {
 
-border-top:1px solid var(--border);
+    width: 100%;
 
-margin-top:auto;
+    background: var(--bg-elevated);
 
-}
+    border-top: 1px solid var(--border);
 
-.footer-container{
-
-max-width:1200px;
-
-margin:auto;
-
-padding:56px 40px;
-
-display:grid;
-
-grid-template-columns:2fr 1fr 1fr;
-
-gap:60px;
+    margin-top: auto;
 
 }
 
-.footer-left h2{
 
-margin-bottom:18px;
+/* ============================================================
+   FOOTER CONTAINER
+============================================================ */
 
-font-size:26px;
+.footer-container {
 
-font-family:var(--font-display);
+    max-width: 1200px;
 
-color:var(--text);
+    margin: 0 auto;
 
-}
+    padding: 48px 40px;
 
-.footer-left p{
+    display: grid;
 
-line-height:1.8;
+    grid-template-columns: 2fr 1fr 1fr;
 
-color:var(--text-muted);
-
-max-width:420px;
-
-}
-
-.footer-middle,
-.footer-right{
-
-display:flex;
-
-flex-direction:column;
-
-gap:12px;
+    gap: 70px;
 
 }
 
-.footer-middle h3,
-.footer-right h3{
 
-margin-bottom:10px;
+/* ============================================================
+   BRAND
+============================================================ */
 
-font-family:var(--font-mono);
+.footer-brand {
 
-font-size:12px;
+    display: flex;
 
-letter-spacing:1px;
+    align-items: center;
 
-text-transform:uppercase;
+    gap: 13px;
 
-color:var(--text-muted);
-
-}
-
-.footer-middle a,
-.footer-right a{
-
-text-decoration:none;
-
-color:var(--text-muted);
-
-transition:.25s ease;
+    margin-bottom: 18px;
 
 }
 
-.footer-middle a:hover,
-.footer-right a:hover{
 
-color:var(--primary);
+.brand-icon {
 
-padding-left:6px;
+    width: 44px;
+    height: 44px;
 
-}
+    display: flex;
 
-.copyright{
+    align-items: center;
 
-padding:20px;
+    justify-content: center;
 
-text-align:center;
+    border-radius: 11px;
 
-border-top:1px solid var(--border);
+    background: var(--primary);
 
-color:var(--text-muted);
+    color: #04120D;
 
-font-size:13.5px;
+    font-size: 17px;
 
-}
-
-.copyright span{
-
-margin:0 12px;
+    box-shadow:
+        0 8px 22px rgba(0, 229, 160, 0.18);
 
 }
 
-@media(max-width:900px){
 
-.footer-container{
+.footer-brand h2 {
 
-grid-template-columns:1fr;
+    margin: 0;
 
-text-align:center;
+    font-size: 21px;
+
+    line-height: 1.2;
+
+    font-family: var(--font-display);
+
+    color: var(--text);
+
+}
+
+
+.footer-brand span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-family: var(--font-mono);
+
+    font-size: 11px;
+
+    color: var(--text-muted);
 
 }
 
-.footer-left p{
 
-margin:auto;
+/* ============================================================
+   FOOTER DESCRIPTION
+============================================================ */
+
+.footer-about p {
+
+    max-width: 440px;
+
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
 
 }
 
-.footer-middle,
-.footer-right{
 
-align-items:center;
+/* ============================================================
+   COLUMN TITLES
+============================================================ */
+
+.footer-links,
+.footer-connect {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
 
 }
+
+
+.footer-links h3,
+.footer-connect h3 {
+
+    margin: 0 0 8px;
+
+    font-family: var(--font-mono);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: var(--text-muted);
+
+}
+
+
+/* ============================================================
+   LINKS
+============================================================ */
+
+.footer-links a,
+.footer-connect a {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: fit-content;
+
+    color: var(--text-muted);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.25s ease;
+
+}
+
+
+.footer-links a:hover,
+.footer-connect a:hover {
+
+    color: var(--primary);
+
+    transform: translateX(4px);
+
+}
+
+
+/* Connect Icons */
+
+.footer-connect i {
+
+    width: 18px;
+
+    text-align: center;
+
+    font-size: 16px;
+
+}
+
+
+/* ============================================================
+   COPYRIGHT
+============================================================ */
+
+.copyright {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    padding: 18px 20px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: 12.5px;
+
+    text-align: center;
+
+}
+
+
+.copyright .separator {
+
+    color: var(--border-strong);
+
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px;
+
+    }
+
+    .footer-about {
+
+        grid-column: 1 / -1;
+
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+    .footer-container {
+
+        grid-template-columns: 1fr;
+
+        padding: 40px 24px;
+
+        gap: 32px;
+
+    }
+
+    .footer-about {
+
+        grid-column: auto;
+
+    }
+
+    .footer-links,
+    .footer-connect {
+
+        align-items: flex-start;
+
+    }
+
+    .copyright {
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 16px 20px;
+
+    }
+
+    .copyright .separator {
+
+        display: none;
+
+    }
 
 }
 
 `]
 })
-export class FooterComponent{
+export class FooterComponent {
 
-year=new Date().getFullYear();
+    year = new Date().getFullYear();
 
 }

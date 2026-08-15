@@ -3,256 +3,439 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-about',
   standalone: true,
+
   template: `
-    <section class="section">
 
-      <span class="section-tag">// ABOUT</span>
+<section class="section">
 
-      <h2 class="section-title">
-        Passionate Software Engineer
-      </h2>
+    <!-- Section Header -->
 
-      <p class="intro">
-        I'm <strong>Shivam Prasad</strong>, a Full Stack .NET Developer with
-        nearly <strong>3 years of experience</strong> developing enterprise
-        applications using <strong>.NET, ASP.NET Core, Angular, SQL Server,
-        REST APIs</strong> and modern development practices.
-      </p>
+    <h2 class="section-title">
+        .NET Backend Developer
+    </h2>
 
-      <p class="intro">
+
+    <!-- Introduction -->
+
+    <p class="intro">
+
+        I'm <strong>Shivamkumar Prasad</strong>, a .NET Backend Developer
+        with <strong>3+ years of experience</strong> building
+        enterprise applications and backend services using
+        <strong>C#, ASP.NET Core, REST APIs, SQL Server</strong>
+        and modern development practices.
+
+    </p>
+
+
+    <p class="intro">
+
         Currently working at
-        <strong>Acty System India Pvt. Ltd.</strong>, I contribute to
-        enterprise solutions for
-        <strong>Konica Minolta's FleetRMM platform</strong>,
-        developing scalable backend APIs, Windows applications,
-        authentication modules and device management features.
-      </p>
+        <strong>Acty System India Pvt. Ltd.</strong>,
+        I contribute to enterprise software solutions focused on
+        backend API development, authentication, device management,
+        system integration and application performance.
 
-      <div class="highlights">
+    </p>
 
-        <div class="card card-hover">
-          <div class="icon">💻</div>
 
-          <h3>Backend Development</h3>
+    <!-- Highlights -->
 
-          <p>
-            Building scalable REST APIs using
-            ASP.NET Core, C#, Entity Framework,
-            SQL Server and Clean Architecture.
-          </p>
-        </div>
+    <div class="highlights">
+
+
+        <!-- Backend -->
 
         <div class="card card-hover">
-          <div class="icon">⚡</div>
 
-          <h3>Frontend Development</h3>
+            <div class="icon">
+                <i class="fa-solid fa-server"></i>
+            </div>
 
-          <p>
-            Creating responsive Angular applications
-            with reusable components and modern UI.
-          </p>
+            <h3>
+                Backend Development
+            </h3>
+
+            <p>
+                Building scalable REST APIs and backend services
+                using ASP.NET Core, C#, Entity Framework,
+                SQL Server and clean architecture principles.
+            </p>
+
         </div>
+
+
+        <!-- Frontend -->
 
         <div class="card card-hover">
-          <div class="icon">🗄️</div>
 
-          <h3>Database</h3>
+            <div class="icon">
+                <i class="fa-solid fa-laptop-code"></i>
+            </div>
 
-          <p>
-            Designing optimized SQL Server databases,
-            stored procedures and performance tuning.
-          </p>
+            <h3>
+                Frontend Development
+            </h3>
+
+            <p>
+                Developing responsive Angular applications
+                with reusable components, TypeScript and
+                modern UI development practices.
+            </p>
+
         </div>
+
+
+        <!-- Database -->
 
         <div class="card card-hover">
-          <div class="icon">🚀</div>
 
-          <h3>Problem Solving</h3>
+            <div class="icon">
+                <i class="fa-solid fa-database"></i>
+            </div>
 
-          <p>
-            Passionate about writing clean,
-            maintainable and production-ready code
-            following best development practices.
-          </p>
+            <h3>
+                Database
+            </h3>
+
+            <p>
+                Working with SQL Server, database design,
+                queries, stored procedures and performance
+                optimization for enterprise applications.
+            </p>
+
         </div>
 
-      </div>
 
-      <div class="achievement">
+        <!-- Problem Solving -->
+
+        <div class="card card-hover">
+
+            <div class="icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+            <h3>
+                Problem Solving
+            </h3>
+
+            <p>
+                Focused on writing clean, maintainable and
+                production-ready code while solving complex
+                application and performance challenges.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Achievements -->
+
+    <div class="achievement">
+
 
         <div class="item">
-          <h3>3+</h3>
-          <span>Years Experience</span>
+
+            <h3>
+                3+
+            </h3>
+
+            <span>
+                Years Experience
+            </span>
+
         </div>
+
 
         <div class="item">
-          <h3>10+</h3>
-          <span>Enterprise Features</span>
+
+            <h3>
+                10+
+            </h3>
+
+            <span>
+                Enterprise Features
+            </span>
+
         </div>
+
 
         <div class="item">
-          <h3>20+</h3>
-          <span>REST APIs</span>
+
+            <h3>
+                20+
+            </h3>
+
+            <span>
+                REST APIs
+            </span>
+
         </div>
+
 
         <div class="item">
-          <h3>100%</h3>
-          <span>Project Commitment</span>
+
+            <h3>
+                1
+            </h3>
+
+            <span>
+                Enterprise Platform
+            </span>
+
         </div>
 
-      </div>
 
-    </section>
-  `,
+    </div>
+
+</section>
+
+`,
+
   styles: [`
 
-.intro{
+/* ============================================================
+   INTRODUCTION
+============================================================ */
 
-color:var(--text-muted);
+.intro {
 
-font-size:17px;
+    max-width: 900px;
 
-line-height:1.9;
+    margin: 0 0 24px;
 
-margin-bottom:24px;
+    color: var(--text-muted);
 
-max-width:900px;
+    font-size: 17px;
 
-}
-
-.intro strong{
-
-color:var(--text);
+    line-height: 1.9;
 
 }
 
-.highlights{
 
-display:grid;
+.intro strong {
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
-gap:22px;
-
-margin-top:46px;
+    color: var(--text);
 
 }
 
-.card{
 
-padding:28px;
+/* ============================================================
+   HIGHLIGHTS
+============================================================ */
 
-}
+.highlights {
 
-.icon{
+    display: grid;
 
-font-size:38px;
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
 
-margin-bottom:16px;
+    gap: 22px;
 
-}
-
-.card h3{
-
-margin:0 0 12px;
-
-color:var(--text);
-
-font-size:20px;
+    margin-top: 46px;
 
 }
 
-.card p{
 
-margin:0;
+/* ============================================================
+   CARDS
+============================================================ */
 
-line-height:1.8;
+.card {
 
-color:var(--text-muted);
-
-font-size:15px;
-
-}
-
-.achievement{
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:20px;
-
-margin-top:56px;
+    padding: 28px;
 
 }
 
-.item{
 
-text-align:center;
+/* ============================================================
+   ICON
+============================================================ */
 
-padding:24px;
+.icon {
 
-background:var(--surface);
+    width: 48px;
 
-border:1px solid var(--border);
+    height: 48px;
 
-border-radius:16px;
+    display: flex;
 
-transition:.25s ease;
+    align-items: center;
 
-}
+    justify-content: center;
 
-.item:hover{
+    margin-bottom: 18px;
 
-transform:translateY(-5px);
+    border-radius: 11px;
 
-border-color:var(--primary);
+    background: var(--primary-dim);
 
-}
+    color: var(--primary);
 
-.item h3{
-
-margin:0;
-
-font-size:36px;
-
-font-family:var(--font-display);
-
-color:var(--primary);
+    font-size: 20px;
 
 }
 
-.item span{
 
-display:block;
+/* ============================================================
+   CARD TITLE
+============================================================ */
 
-margin-top:8px;
+.card h3 {
 
-color:var(--text-muted);
+    margin: 0 0 12px;
 
-font-size:13.5px;
+    color: var(--text);
 
-font-family:var(--font-mono);
-
-}
-
-@media(max-width:900px){
-
-.achievement{
-
-grid-template-columns:repeat(2,1fr);
+    font-size: 20px;
 
 }
 
+
+/* ============================================================
+   CARD DESCRIPTION
+============================================================ */
+
+.card p {
+
+    margin: 0;
+
+    line-height: 1.8;
+
+    color: var(--text-muted);
+
+    font-size: 15px;
+
 }
 
-@media(max-width:600px){
 
-.achievement{
+/* ============================================================
+   ACHIEVEMENTS
+============================================================ */
 
-grid-template-columns:1fr;
+.achievement {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-top: 56px;
 
 }
+
+
+/* ============================================================
+   ACHIEVEMENT ITEM
+============================================================ */
+
+.item {
+
+    padding: 24px;
+
+    text-align: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    transition: .25s ease;
+
+}
+
+
+.item:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--primary);
+
+}
+
+
+/* ============================================================
+   ACHIEVEMENT VALUE
+============================================================ */
+
+.item h3 {
+
+    margin: 0;
+
+    font-size: 34px;
+
+    font-family: var(--font-display);
+
+    color: var(--primary);
+
+}
+
+
+/* ============================================================
+   ACHIEVEMENT LABEL
+============================================================ */
+
+.item span {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    font-family: var(--font-mono);
+
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media(max-width: 900px) {
+
+    .achievement {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media(max-width: 600px) {
+
+    .intro {
+
+        font-size: 15px;
+
+    }
+
+
+    .achievement {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .highlights {
+
+        grid-template-columns: 1fr;
+
+    }
 
 }
 

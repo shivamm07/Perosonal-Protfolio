@@ -17,11 +17,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
             <img
                 src="assets/images/profile.png"
-                alt="Shivam Prasad">
+                alt="Shivamkumar Prasad">
 
         </div>
 
-        <h2>Shivam Prasad</h2>
+        <h4>Shivamkumar Prasad</h4>
 
         <p>Senior .NET Developer</p>
 
@@ -33,24 +33,24 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
         </div>
 
-        <div class="stat-row">
+<div class="stat-row">
 
-            <div class="stat">
-                <span class="value">3+</span>
-                <span class="label">yrs</span>
-            </div>
+    <div class="stat">
+        <span class="value">3+</span>
+        <span class="label">yrs</span>
+    </div>
 
-            <div class="stat">
-                <span class="value">20+</span>
-                <span class="label">APIs</span>
-            </div>
+    <div class="stat">
+        <span class="value">Backend</span>
+        <span class="label">Developer</span>
+    </div>
 
-            <div class="stat">
-                <span class="value">99.9%</span>
-                <span class="label">uptime*</span>
-            </div>
+    <div class="stat">
+        <span class="value">.NET</span>
+        <span class="label">Developer</span>
+    </div>
 
-        </div>
+</div>
 
     </div>
 
@@ -67,42 +67,36 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         <a routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">
 
             <span class="nav-label">🏠 Home</span>
-            <span class="endpoint">/</span>
 
         </a>
 
         <a routerLink="/about" routerLinkActive="active">
 
             <span class="nav-label">👤 About</span>
-            <span class="endpoint">/about</span>
 
         </a>
 
         <a routerLink="/skills" routerLinkActive="active">
 
             <span class="nav-label">⚡ Skills</span>
-            <span class="endpoint">/skills</span>
 
         </a>
 
         <a routerLink="/projects" routerLinkActive="active">
 
             <span class="nav-label">💼 Projects</span>
-            <span class="endpoint">/projects</span>
 
         </a>
 
         <a routerLink="/experience" routerLinkActive="active">
 
             <span class="nav-label">🏢 Experience</span>
-            <span class="endpoint">/experience</span>
 
         </a>
 
         <a routerLink="/contact" routerLinkActive="active">
 
             <span class="nav-label">✉ Contact</span>
-            <span class="endpoint">/contact</span>
 
         </a>
 
@@ -129,31 +123,34 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 
     <!-- Footer -->
 
-    <div class="bottom">
+<!-- Footer -->
 
-        <div class="social">
+<div class="bottom">
 
-            <a href="https://github.com/yourusername" target="_blank">
+    <div class="social">
 
-                GitHub
+        <a href="https://github.com/shivamm07"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
 
-            </a>
+        <a href="https://www.linkedin.com/in/shivamm07/"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
 
-            <a href="https://linkedin.com/in/yourprofile" target="_blank">
-
-                LinkedIn
-
-            </a>
-
-            <a href="mailto:yourmail@gmail.com">
-
-                Email
-
-            </a>
-
-        </div>
+        <a href="mailto:shivamk.prasad07@gmail.com"
+           aria-label="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
 
     </div>
+
+</div>
 
 </div>
 
@@ -168,26 +165,22 @@ height:100%;
 
 }
 
-.sidebar{
+.sidebar {
+    height: calc(100vh - 82px);
 
-height:100%;
+    display: flex;
+    flex-direction: column;
 
-display:flex;
+    padding: 26px;
 
-flex-direction:column;
+    background: var(--surface);
 
-padding:26px;
+    backdrop-filter: blur(20px);
 
-background:var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
 
-backdrop-filter:blur(20px);
-
-border:1px solid var(--border);
-
-border-radius:20px;
-
-overflow-y:auto;
-
+    overflow-y: auto;
 }
 
 /* Profile */
@@ -485,43 +478,36 @@ padding-top:26px;
 }
 
 .social{
-
-display:flex;
-
-flex-direction:column;
-
-gap:10px;
-
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
 .social a{
+    width:40px;
+    height:40px;
 
-padding:11px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-border-radius:10px;
+    border-radius:10px;
 
-background:var(--surface-light);
+    background:var(--surface-light);
+    border:1px solid var(--border);
 
-border:1px solid var(--border);
+    text-decoration:none;
+    color:var(--text-muted);
 
-text-decoration:none;
+    font-size:18px;
 
-color:var(--text-muted);
-
-font-size:14px;
-
-transition:.25s ease;
-
+    transition:.25s ease;
 }
 
 .social a:hover{
-
-border-color:var(--primary);
-
-color:var(--primary);
-
-transform:translateX(4px);
-
+    border-color:var(--primary);
+    color:var(--primary);
+    transform:translateY(-3px);
 }
 
 @media(max-width:992px){

@@ -9,23 +9,14 @@ import { ThemeService } from '../../services/theme.service';
   imports: [CommonModule, RouterLink, RouterLinkActive],
   template: `
 
-<div class="statusbar">
-  <span class="status-dot"></span>
-  <span>ALL SYSTEMS OPERATIONAL</span>
-  <span class="sep">·</span>
-  <span>UPTIME 3Y 2MO</span>
-  <span class="sep">·</span>
-  <span>{{ buildTag }}</span>
-</div>
-
 <header class="navbar">
 
-    <div class="logo">
+    <!-- Logo -->
+
+    <a routerLink="/" class="logo">
 
         <div class="logo-box">
-
-            &lt;/&gt;
-
+            <i class="fa-solid fa-code"></i>
         </div>
 
         <div class="logo-text">
@@ -36,7 +27,10 @@ import { ThemeService } from '../../services/theme.service';
 
         </div>
 
-    </div>
+    </a>
+
+
+    <!-- Navigation -->
 
     <nav>
 
@@ -91,25 +85,40 @@ import { ThemeService } from '../../services/theme.service';
 
     </nav>
 
+
+    <!-- Actions -->
+
     <div class="actions">
 
         <a
             href="assets/resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             class="resume">
 
-            Resume
+            <i class="fa-regular fa-file-lines"></i>
+            <span>Resume</span>
 
         </a>
+
 
         <button
             class="theme"
             type="button"
             (click)="theme.toggle()"
-            [attr.aria-label]="theme.theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
+            [attr.aria-label]="theme.theme() === 'dark'
+                ? 'Switch to light theme'
+                : 'Switch to dark theme'">
 
-            <span *ngIf="theme.theme() === 'dark'">☀</span>
-            <span *ngIf="theme.theme() === 'light'">☾</span>
+            <i
+                *ngIf="theme.theme() === 'dark'"
+                class="fa-solid fa-sun">
+            </i>
+
+            <i
+                *ngIf="theme.theme() === 'light'"
+                class="fa-solid fa-moon">
+            </i>
 
         </button>
 
@@ -118,288 +127,471 @@ import { ThemeService } from '../../services/theme.service';
 </header>
 
 `,
-styles:[`
+  styles: [`
 
-:host{
+:host {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-display:block;
 
-position:sticky;
+/* =========================
+   Navbar
+========================= */
 
-top:0;
+.navbar {
 
-z-index:1000;
+    height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 46px;
+
+    background: rgba(18, 23, 31, 0.82);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid var(--border);
 
 }
 
-.statusbar{
 
-display:flex;
+/* Light Theme */
 
-align-items:center;
+[data-theme="light"] .navbar {
 
-justify-content:center;
-
-gap:10px;
-
-padding:7px 20px;
-
-font-family:var(--font-mono);
-
-font-size:11.5px;
-
-letter-spacing:.4px;
-
-color:var(--text-muted);
-
-background:var(--bg-elevated);
-
-border-bottom:1px solid var(--border);
+    background: rgba(255, 255, 255, 0.82);
 
 }
 
-.statusbar .status-dot{
 
-box-shadow:0 0 0 3px var(--primary-dim);
+/* =========================
+   Logo
+========================= */
 
-}
+.logo {
 
-.statusbar .sep{
+    display: flex;
+    align-items: center;
 
-color:var(--border-strong);
+    gap: 13px;
 
-}
+    text-decoration: none;
 
-.navbar{
-
-height:82px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:0 40px;
-
-background:rgba(18,23,31,.75);
-
-backdrop-filter:blur(20px);
-
-border-bottom:1px solid var(--border);
+    min-width: 210px;
 
 }
 
-[data-theme="light"] .navbar{
 
-background:rgba(255,255,255,.75);
+/* Logo Icon */
 
-}
+.logo-box {
 
-.logo{
+    width: 48px;
+    height: 48px;
 
-display:flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-align-items:center;
+    border-radius: 13px;
 
-gap:14px;
+    background: var(--primary);
 
-}
+    color: #04120D;
 
-.logo-box{
+    font-size: 19px;
 
-width:50px;
+    box-shadow:
+        0 8px 24px rgba(0, 229, 160, 0.22);
 
-height:50px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-border-radius:12px;
-
-background:var(--primary);
-
-font-size:20px;
-
-font-weight:700;
-
-color:#04120D;
-
-font-family:var(--font-mono);
-
-box-shadow:0 10px 26px rgba(0,229,160,.25);
+    transition: 0.25s ease;
 
 }
 
-.logo-text h2{
 
-margin:0;
+.logo:hover .logo-box {
 
-font-size:20px;
+    transform: translateY(-2px);
 
-font-weight:700;
-
-color:var(--text);
-
-font-family:var(--font-display);
+    box-shadow:
+        0 12px 30px rgba(0, 229, 160, 0.32);
 
 }
 
-.logo-text span{
 
-font-size:12.5px;
+/* Logo Text */
 
-font-family:var(--font-mono);
+.logo-text {
 
-color:var(--text-muted);
+    display: flex;
+    flex-direction: column;
 
-}
-
-nav{
-
-display:flex;
-
-gap:6px;
+    gap: 2px;
 
 }
 
-nav a{
 
-padding:11px 18px;
+.logo-text h2 {
 
-border-radius:9px;
+    margin: 0;
 
-text-decoration:none;
+    font-size: 20px;
 
-font-weight:600;
+    line-height: 1.1;
 
-font-size:14.5px;
+    font-weight: 700;
 
-color:var(--text-muted);
+    color: var(--text);
 
-transition:.25s ease;
-
-}
-
-nav a:hover{
-
-background:var(--surface-light);
-
-color:var(--text);
+    font-family: var(--font-display);
 
 }
 
-nav a.active{
 
-background:var(--primary-dim);
+.logo-text span {
 
-color:var(--primary);
+    font-size: 12px;
 
-}
+    letter-spacing: 0.3px;
 
-.actions{
+    color: var(--text-muted);
 
-display:flex;
-
-align-items:center;
-
-gap:12px;
+    font-family: var(--font-mono);
 
 }
 
-.resume{
 
-padding:11px 22px;
+/* =========================
+   Navigation
+========================= */
 
-border-radius:9px;
+nav {
 
-background:var(--primary);
+    display: flex;
+    align-items: center;
 
-color:#04120D;
-
-text-decoration:none;
-
-font-weight:700;
-
-transition:.25s ease;
+    gap: 5px;
 
 }
 
-.resume:hover{
 
-transform:translateY(-2px);
+nav a {
 
-box-shadow:0 15px 32px rgba(0,229,160,.3);
+    position: relative;
 
-}
+    padding: 11px 17px;
 
-.theme{
+    border-radius: 9px;
 
-width:44px;
+    color: var(--text-muted);
 
-height:44px;
+    text-decoration: none;
 
-border:1px solid var(--border-strong);
+    font-size: 14px;
 
-border-radius:50%;
+    font-weight: 600;
 
-cursor:pointer;
-
-background:var(--surface);
-
-color:var(--text);
-
-font-size:17px;
-
-transition:.25s ease;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
 
 }
 
-.theme:hover{
 
-border-color:var(--primary);
+nav a:hover {
 
-color:var(--primary);
+    background: var(--surface-light);
 
-transform:rotate(15deg);
-
-}
-
-@media(max-width:1100px){
-
-nav{
-
-display:none;
+    color: var(--text);
 
 }
 
-.navbar{
 
-padding:0 20px;
+nav a.active {
 
-}
+    background: var(--primary-dim);
 
-}
-
-@media(max-width:600px){
-
-.statusbar{
-
-font-size:10px;
-
-gap:6px;
+    color: var(--primary);
 
 }
 
-.statusbar .sep:nth-of-type(2),
-.statusbar span:nth-last-child(1){
 
-display:none;
+/* =========================
+   Actions
+========================= */
+
+.actions {
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    min-width: 210px;
+
+    justify-content: flex-end;
 
 }
+
+
+/* Resume */
+
+.resume {
+
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 20px;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    color: #04120D;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.25s ease;
+
+}
+
+
+.resume i {
+
+    font-size: 14px;
+
+}
+
+
+.resume:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 229, 160, 0.28);
+
+}
+
+
+/* =========================
+   Theme Button
+========================= */
+
+.theme {
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border-strong);
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.25s ease;
+
+}
+
+
+.theme:hover {
+
+    color: var(--primary);
+
+    border-color: var(--primary);
+
+    transform: rotate(12deg);
+
+}
+
+
+.theme i {
+
+    transition: 0.2s ease;
+
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 1100px) {
+
+    .navbar {
+
+        padding: 0 24px;
+
+    }
+
+    nav {
+
+        gap: 2px;
+
+    }
+
+    nav a {
+
+        padding: 10px 12px;
+
+    }
+
+    .logo,
+    .actions {
+
+        min-width: auto;
+
+    }
+
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+
+        height: 72px;
+
+        padding: 0 18px;
+
+    }
+
+    .logo-box {
+
+        width: 43px;
+        height: 43px;
+
+        border-radius: 11px;
+
+    }
+
+    .logo-text h2 {
+
+        font-size: 18px;
+
+    }
+
+    .logo-text span {
+
+        font-size: 11px;
+
+    }
+
+    nav {
+
+        display: none;
+
+    }
+
+    .resume {
+
+        width: 44px;
+        height: 44px;
+
+        padding: 0;
+
+    }
+
+    .resume span {
+
+        display: none;
+
+    }
+
+    .resume i {
+
+        font-size: 16px;
+
+    }
+
+}
+
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+
+        padding: 0 14px;
+
+    }
+
+    .logo {
+
+        gap: 9px;
+
+    }
+
+    .logo-box {
+
+        width: 40px;
+        height: 40px;
+
+    }
+
+    .logo-text h2 {
+
+        font-size: 17px;
+
+    }
+
+    .logo-text span {
+
+        font-size: 10px;
+
+    }
+
+    .actions {
+
+        gap: 7px;
+
+    }
+
+    .theme {
+
+        width: 40px;
+        height: 40px;
+
+    }
+
+    .resume {
+
+        width: 40px;
+        height: 40px;
+
+    }
 
 }
 
@@ -407,8 +599,10 @@ display:none;
 })
 export class TopbarComponent {
 
-  theme = inject(ThemeService);
+    theme = inject(ThemeService);
 
-  buildTag = `BUILD ${new Date().getFullYear()}.${String(new Date().getMonth() + 1).padStart(2, '0')}`;
+    buildTag = `BUILD ${new Date().getFullYear()}.${String(
+        new Date().getMonth() + 1
+    ).padStart(2, '0')}`;
 
 }
